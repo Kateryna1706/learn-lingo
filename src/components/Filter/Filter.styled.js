@@ -12,7 +12,7 @@ export const ContainerPosition = styled.div`
   .arrow {
     position: absolute;
     left: 190px;
-    bottom: 15px;
+    bottom: 20px;
     cursor: pointer;
   }
 `;
@@ -21,7 +21,6 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   align-self: start;
-  /* width: 100%; */
 
   input {
     height: 48px;
@@ -29,13 +28,17 @@ export const Label = styled.label`
     border: none;
     border-radius: 14px;
     box-sizing: border-box;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
+    color: #121417;
     background-color: #f7f7fb;
-    &::placeholder {
+    /* &::placeholder {
       font-size: 18px;
       line-height: 20px;
       font-weight: 500;
       color: #121417;
-    }
+    } */
   }
 `;
 
@@ -53,9 +56,27 @@ export const Brand = styled.input`
 
 export const DropdownBrand = styled.div`
   position: absolute;
+  top: 104%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 272px;
+  width: 224px;
+  padding: 14px 18px;
+  border: 1px solid rgba(18, 20, 23, 0.05);
+  border-radius: 14px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  background-color: #fff;
 `;
 
-export const DropdownBrandItem = styled.div``;
+export const DropdownBrandItem = styled.div`
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  color: rgba(18, 20, 23, 0.2);
+  cursor: pointer;
+`;
 
 export const Price = styled.input`
   width: 125px;
@@ -82,4 +103,9 @@ export const ButtonSearch = styled.button`
   font-weight: 600;
   color: #fff;
   background-color: #3470ff;
+  cursor: pointer;
+
+  :hover {
+    background-color: #0b44cd;
+  }
 `;

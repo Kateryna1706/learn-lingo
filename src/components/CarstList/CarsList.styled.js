@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const List = styled.ul`
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   flex-wrap: wrap;
   row-gap: 50px;
   column-gap: 29px;
@@ -25,8 +25,7 @@ export const ListItem = styled.li`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 274px;
-  /* max-width: calc((100%-87px) / 4); */
+  max-width: calc((100% - 87px) / 4);
 
   img {
     display: block;
@@ -81,4 +80,8 @@ export const Button = styled.button`
 
   background-color: #3470ff;
   cursor: pointer;
+
+  :hover {
+    background-color: #0b44cd;
+  }
 `;
