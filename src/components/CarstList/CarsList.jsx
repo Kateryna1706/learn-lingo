@@ -33,7 +33,8 @@ export const CarsList = ({ handleClickCar }) => {
             <p>{car.rentalPrice}</p>
           </ContainerMakeAndPrice>
           <ContainerDescription>
-            <p>{car.address}</p>
+            <p>{car.address.split(',').slice(1, 2)}</p>
+            <p>{car.address.split(',').slice(2)}</p>
             <p>{car.rentalCompany}</p>
           </ContainerDescription>
           <ContainerDescription>

@@ -14,6 +14,7 @@ export const Overlay = styled.div`
 `;
 
 export const ModalWrap = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,6 +33,13 @@ export const ModalWrap = styled.div`
 
   p {
     margin: 0;
+  }
+
+  .close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
   }
 `;
 
@@ -103,8 +111,12 @@ export const ListConditions = styled.div`
   padding: 0;
   margin: 0;
   list-style: none;
+  font-size: 12px;
+  line-height: 18px;
+  color: #363535;
 
   li {
+    padding: 7px 14px;
     border-radius: 35px;
     background-color: #f9f9f9;
   }

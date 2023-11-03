@@ -29,7 +29,8 @@ export const ListItem = styled.li`
 
   img {
     display: block;
-    width: 100%;
+    /* width: 100%; */
+    width: 274px;
     height: 268px;
     border-radius: 14px;
   }

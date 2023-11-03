@@ -13,12 +13,27 @@ import {
   Text,
   Button,
 } from './Modalstyled';
+import { ReactComponent as Close } from '../Icons/close.svg';
 
 export const Modal = ({ car, onClick }) => {
+  const getMileage = value => {
+    const array = value.toString().split('');
+    array.splice(1, 0, ',');
+    return array.join('');
+  };
+
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       onClick();
     }
+  };
+
+  const handleClickClose = () => {
+    onClick();
+  };
+
+  const handleClickRental = event => {
+    console.log(event);
   };
 
   useEffect(() => {
@@ -34,18 +49,19 @@ export const Modal = ({ car, onClick }) => {
   return (
     <Overlay onClick={handleBackdropClick}>
       <ModalWrap>
+        <Close className="close" onClick={handleClickClose} />
         <img src={car.img} alt="" width="274"></img>
         <ContainerMakeAndYear>{`${car.make}, ${car.year}`}</ContainerMakeAndYear>
         <ContainerDescription>
-          <p>{car.address}</p>
-          <p>{car.address}</p>
-          <p>{car.id}</p>
-          <p>{car.year}</p>
-          <p>{car.type}</p>
+          <p>{car.address.split(',').slice(1, 2)}</p>
+          <p>{car.address.split(',').slice(2)}</p>
+          <p>Id: {car.id}</p>
+          <p>Year: {car.year}</p>
+          <p>Type: {car.type}</p>
         </ContainerDescription>
         <ContainerDescription>
-          <p>{`Fuel Consumption: ${car.fuelConsumption}`}</p>
-          <p>{`Engine Size: ${car.engineSize}`}</p>
+          <p>Fuel Consumption: {car.fuelConsumption}</p>
+          <p>Engine Size: {car.engineSize}</p>
         </ContainerDescription>
         <Description>{car.description}</Description>
         <Accessories>Accessories and functionalities:</Accessories>
@@ -61,17 +77,20 @@ export const Modal = ({ car, onClick }) => {
         </List>
         <Conditions>Rental Conditions: </Conditions>
         <ListConditions>
-          {car.rentalConditions.split(' ').map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
           <li>
-            Mileage:$<Text>{car.mileage}</Text>
+            {car.rentalConditions.slice(0, 13)}
+            <Text>{car.rentalConditions.slice(13, 16)}</Text>
+          </li>
+          <li>{car.rentalConditions.slice(16, 39)}</li>
+          <li>{car.rentalConditions.slice(39)}</li>
+          <li>
+            Mileage: <Text>{getMileage(car.mileage)}</Text>
           </li>
           <li>
-            Price:<Text>{car.rentalPrice}</Text>
+            Price: <Text>{car.rentalPrice.slice(1)}$</Text>
           </li>
         </ListConditions>
-        <Button>Rental car</Button>
+        <Button onClick={handleClickRental}>Rental car</Button>
       </ModalWrap>
     </Overlay>
   );
