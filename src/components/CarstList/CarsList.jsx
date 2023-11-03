@@ -15,7 +15,7 @@ import {
 // const photoTrial =
 //   'C:UsersKaterina ZykovaDesktopGitHubcar-rental-appsrcimgimage 1 (1).png';
 
-export const CarsList = () => {
+export const CarsList = ({ handleClickCar }) => {
   // const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
 
@@ -42,7 +42,7 @@ export const CarsList = () => {
             <p>{car.id}</p>
             <p>{car.functionalities[0]}</p>
           </ContainerDescription>
-          <Button>Learn more</Button>
+          <Button onClick={() => handleClickCar(car.id)}>Learn more</Button>
         </ListItem>
       ))}
     </List>
