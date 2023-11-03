@@ -6,17 +6,22 @@ import {
   List,
   ListItem,
 } from './CarsList.styled';
-import { selectCars, selectVisibleCars } from 'redux/cars/carsSelectors';
+import {
+  selectCars,
+  selectFilter,
+  selectVisibleCars,
+} from 'redux/cars/carsSelectors';
 
 // const photoTrial =
 //   'C:UsersKaterina ZykovaDesktopGitHubcar-rental-appsrcimgimage 1 (1).png';
 
 export const CarsList = () => {
   // const dispatch = useDispatch();
+  const filter = useSelector(selectFilter);
 
   const allCars = useSelector(selectCars);
   const visibleCars = useSelector(selectVisibleCars);
-  const cars = visibleCars ? visibleCars : allCars;
+  const cars = filter.filterBrand || filter.filterPrice ? visibleCars : allCars;
 
   return (
     <List>

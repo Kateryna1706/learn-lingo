@@ -16,7 +16,7 @@ import storage from 'redux-persist/lib/storage';
 const filterPersistConfig = {
   key: 'filter',
   storage,
-  whitelist: ['filter'],
+  whitelist: ['filterBrand', 'filterPrice'],
 };
 
 export const store = configureStore({

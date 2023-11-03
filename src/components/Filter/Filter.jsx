@@ -8,8 +8,8 @@ import {
   Text,
   СarMileage,
   СarMileageItem,
-  DropdownBrand,
-  DropdownBrandItem,
+  Dropdown,
+  DropdownItem,
   ContainerPosition,
   ButtonSearch,
 } from './Filter.styled';
@@ -18,7 +18,7 @@ import { ReactComponent as ArrowUp } from '../Icons/arrow-up.svg';
 import { useState } from 'react';
 import { selectFilter } from 'redux/cars/carsSelectors';
 
-const brand = [
+const brandList = [
   'Buick',
   'Volvo',
   'HUMMER',
@@ -43,23 +43,61 @@ const brand = [
   'Land',
 ];
 
+const getPriceList = () => {
+  let price = [];
+  for (let i = 20; i <= 500; i += 10) {
+    price.push(i);
+  }
+
+  return price;
+};
+
+const priceList = getPriceList();
+
 export const Filter = () => {
   const dispatch = useDispatch();
-  const [visible, setVisible] = useState(false);
   const filter = useSelector(selectFilter);
+  const [visibleBrand, setVisibleBrand] = useState(false);
+  const [visiblePrice, setVisiblePrice] = useState(false);
+  const [brand, setBrand] = useState(
+    filter.filterBrand ? filter.filterBrand : 'Enter the text'
+  );
+  const [price, setPrice] = useState(
+    filter.filterPrice ? filter.filterPrice : 'To $'
+  );
 
-  const handleFilterChange = event => {
+  const handleFilterChangeBrand = event => {
     const value = event.target.innerHTML;
     console.log(value);
-    dispatch(changeFilter(value));
+    dispatch(changeFilter({ key: 'filterBrand', value }));
+    setBrand(value);
   };
 
-  const handleClickDown = () => {
-    setVisible(true);
+  const handleFilterChangePrice = event => {
+    const value = event.target.innerHTML;
+    console.log(value);
+    dispatch(changeFilter({ key: 'filterPrice', value }));
+    setPrice(value);
   };
 
-  const handleClickUp = () => {
-    setVisible(false);
+  const handleFilterChange = event => {
+    console.log(event.target);
+  };
+
+  const handleClickDownBrand = () => {
+    setVisibleBrand(true);
+  };
+
+  const handleClickUpBrand = () => {
+    setVisibleBrand(false);
+  };
+
+  const handleClickDownPrice = () => {
+    setVisiblePrice(true);
+  };
+
+  const handleClickUpPrice = () => {
+    setVisiblePrice(false);
   };
 
   return (
@@ -70,36 +108,50 @@ export const Filter = () => {
           <Brand
             type="text"
             name="filter"
-            value={filter ? filter : 'Enter the text'}
-            // placeholder="Enter the text"
-            onChange={handleFilterChange}
+            value={brand}
+            onChange={handleFilterChangeBrand}
           />
         </Label>
-        {visible ? (
-          <ArrowUp className="arrow" onClick={handleClickUp} />
+        {visibleBrand ? (
+          <ArrowUp className="arrow" onClick={handleClickUpBrand} />
         ) : (
-          <ArrowDown className="arrow" onClick={handleClickDown} />
+          <ArrowDown className="arrow" onClick={handleClickDownBrand} />
         )}
-        {visible && (
-          <DropdownBrand>
-            {brand.map((item, index) => (
-              <DropdownBrandItem key={index} onClick={handleFilterChange}>
+        {visibleBrand && (
+          <Dropdown className="brand">
+            {brandList.map((item, index) => (
+              <DropdownItem key={index} onClick={handleFilterChangeBrand}>
                 {item}
-              </DropdownBrandItem>
+              </DropdownItem>
             ))}
-          </DropdownBrand>
+          </Dropdown>
         )}
       </ContainerPosition>
-      <Label>
-        <Text>Price/ 1 hour</Text>
-        <Price
-          type="text"
-          name="filter"
-          value={'To $'}
-          // placeholder="To $"
-          onChange={handleFilterChange}
-        />
-      </Label>
+      <ContainerPosition>
+        <Label>
+          <Text>Price/ 1 hour</Text>
+          <Price
+            type="text"
+            name="filter"
+            value={price}
+            onChange={handleFilterChangePrice}
+          />
+        </Label>
+        {visiblePrice ? (
+          <ArrowUp className="arrow price" onClick={handleClickUpPrice} />
+        ) : (
+          <ArrowDown className="arrow price" onClick={handleClickDownPrice} />
+        )}
+        {visiblePrice && (
+          <Dropdown className="price">
+            {priceList.map((item, index) => (
+              <DropdownItem key={index} onClick={handleFilterChangePrice}>
+                {item}
+              </DropdownItem>
+            ))}
+          </Dropdown>
+        )}
+      </ContainerPosition>
       <Label>
         <Text>Сar mileage / km</Text>
         <СarMileage>
@@ -107,14 +159,12 @@ export const Filter = () => {
             type="text"
             name="filter"
             value={'From'}
-            // placeholder="From"
             onChange={handleFilterChange}
           />
           <СarMileageItem
             type="text"
             name="filter"
             value={'To'}
-            // placeholder="To"
             onChange={handleFilterChange}
           />
         </СarMileage>

@@ -15,6 +15,21 @@ export const ContainerPosition = styled.div`
     bottom: 20px;
     cursor: pointer;
   }
+
+  .arrow.price {
+    left: 35px;
+    bottom: 20px;
+  }
+
+  .brand {
+    max-height: 272px;
+    width: 224px;
+  }
+
+  .price {
+    max-height: 188px;
+    width: 125px;
+  }
 `;
 
 export const Label = styled.label`
@@ -80,6 +95,38 @@ export const DropdownBrandItem = styled.div`
 
 export const Price = styled.input`
   width: 125px;
+`;
+
+export const Dropdown = styled.div`
+  position: absolute;
+  top: 104%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 18px;
+  border: 1px solid rgba(18, 20, 23, 0.05);
+  border-radius: 14px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  background-color: #fff;
+
+  /* & >.brand {
+    max-height: 272px;
+    width: 224px;
+  }
+
+  & >.price {
+    max-height: 188px;
+    width: 125px;
+  } */
+`;
+
+export const DropdownItem = styled.div`
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  color: rgba(18, 20, 23, 0.2);
+  cursor: pointer;
 `;
 
 export const СarMileage = styled.div`
