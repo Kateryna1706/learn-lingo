@@ -12,10 +12,10 @@ export default function Cars() {
 
   const dispatch = useDispatch();
 
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   //  const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState({ isOpen: false, visibleData: null });
-  const [loadMore, setLoadMore] = useState(false);
+  // const [loadMore, setLoadMore] = useState(false);
 
   //  const changeValue = value => {
   //    setValue(value);
@@ -23,9 +23,9 @@ export default function Cars() {
   //    setImages([]);
   //  };
 
-  const showMore = () => {
-    setPage(prevState => prevState + 1);
-  };
+  // const showMore = () => {
+  //   setPage(prevState => prevState + 1);
+  // };
 
   const handleClickCar = id => {
     const index = cars.findIndex(item => item.id === id);
