@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/car-rental-app/static/css/main.7acaea2f.css",
-    "main.js": "/car-rental-app/static/js/main.28512cad.js",
+    "main.js": "/car-rental-app/static/js/main.139671c7.js",
     "static/js/266.0f04b416.chunk.js": "/car-rental-app/static/js/266.0f04b416.chunk.js",
-    "static/js/99.8040990a.chunk.js": "/car-rental-app/static/js/99.8040990a.chunk.js",
+    "static/js/99.c6c13f2e.chunk.js": "/car-rental-app/static/js/99.c6c13f2e.chunk.js",
     "static/js/681.0b8e0406.chunk.js": "/car-rental-app/static/js/681.0b8e0406.chunk.js",
-    "static/js/420.4eaed3fa.chunk.js": "/car-rental-app/static/js/420.4eaed3fa.chunk.js",
+    "static/js/420.125109fb.chunk.js": "/car-rental-app/static/js/420.125109fb.chunk.js",
     "index.html": "/car-rental-app/index.html",
     "static/media/close.svg": "/car-rental-app/static/media/close.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
     "static/media/arrow-down.svg": "/car-rental-app/static/media/arrow-down.79bb3bd5cb19f91e61543a78746695e0.svg",
     "static/media/arrow-up.svg": "/car-rental-app/static/media/arrow-up.e8100197ca2c3e8cb4a54703bda9d7b0.svg",
     "main.7acaea2f.css.map": "/car-rental-app/static/css/main.7acaea2f.css.map",
-    "main.28512cad.js.map": "/car-rental-app/static/js/main.28512cad.js.map",
+    "main.139671c7.js.map": "/car-rental-app/static/js/main.139671c7.js.map",
     "266.0f04b416.chunk.js.map": "/car-rental-app/static/js/266.0f04b416.chunk.js.map",
-    "99.8040990a.chunk.js.map": "/car-rental-app/static/js/99.8040990a.chunk.js.map",
+    "99.c6c13f2e.chunk.js.map": "/car-rental-app/static/js/99.c6c13f2e.chunk.js.map",
     "681.0b8e0406.chunk.js.map": "/car-rental-app/static/js/681.0b8e0406.chunk.js.map",
-    "420.4eaed3fa.chunk.js.map": "/car-rental-app/static/js/420.4eaed3fa.chunk.js.map"
+    "420.125109fb.chunk.js.map": "/car-rental-app/static/js/420.125109fb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.28512cad.js"
+    "static/js/main.139671c7.js"
   ]
 }
