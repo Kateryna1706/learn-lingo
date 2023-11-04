@@ -2,30 +2,23 @@ import { Filter } from 'components/Filter/Filter';
 import { CarsList } from 'components/CarstList/CarsList';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCars } from 'redux/cars/carsOperations';
-import { selectCars } from 'redux/cars/carsSelectors';
+import { fetchCars, getFilteredCars } from 'redux/cars/carsOperations';
 import { Container } from './Pages.styled';
 import { Modal } from 'components/Modal/Modal';
+import { selectCars, selectFilter } from 'redux/cars/carsSelectors';
 
 export default function Cars() {
   const cars = useSelector(selectCars);
-
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  // const [page, setPage] = useState(1);
-  //  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
   const [modal, setModal] = useState({ isOpen: false, visibleData: null });
-  // const [loadMore, setLoadMore] = useState(false);
+  const [loadMore, setLoadMore] = useState(false);
 
-  //  const changeValue = value => {
-  //    setValue(value);
-  //    setPage(1);
-  //    setImages([]);
-  //  };
-
-  // const showMore = () => {
-  //   setPage(prevState => prevState + 1);
-  // };
+  const showMore = () => {
+    setPage(prevState => prevState + 1);
+  };
 
   const handleClickCar = id => {
     const index = cars.findIndex(item => item.id === id);
@@ -44,9 +37,14 @@ export default function Cars() {
   };
 
   useEffect(() => {
-    dispatch(fetchCars());
-    // setLoadMore(page < Math.ceil(response.data.totalHits / 12));
-  }, [dispatch]);
+    if (filter.filterBrand.length !== 0) {
+      dispatch(getFilteredCars({ page, make: filter.filterBrand }));
+    } else {
+      dispatch(fetchCars(page));
+    }
+
+    setLoadMore(page < Math.ceil(41 / 12));
+  }, [dispatch, filter, page]);
 
   return (
     <Container>
@@ -55,8 +53,12 @@ export default function Cars() {
 
       {cars.length !== 0 && (
         <>
-          <Filter />
-          <CarsList handleClickCar={handleClickCar} />
+          <Filter page={page} />
+          <CarsList
+            handleClickCar={handleClickCar}
+            showMore={showMore}
+            loadMore={loadMore}
+          />
         </>
       )}
     </Container>

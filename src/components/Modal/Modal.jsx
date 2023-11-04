@@ -32,10 +32,6 @@ export const Modal = ({ car, onClick }) => {
     onClick();
   };
 
-  const handleClickRental = event => {
-    console.log(event);
-  };
-
   useEffect(() => {
     const handleKeyDown = event => {
       if (event.code === 'Escape') {
@@ -90,7 +86,7 @@ export const Modal = ({ car, onClick }) => {
             Price: <Text>{car.rentalPrice.slice(1)}$</Text>
           </li>
         </ListConditions>
-        <Button onClick={handleClickRental}>Rental car</Button>
+        <Button href="tel:+380730000000">Rental car</Button>
       </ModalWrap>
     </Overlay>
   );

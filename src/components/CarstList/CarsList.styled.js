@@ -29,7 +29,6 @@ export const ListItem = styled.li`
 
   img {
     display: block;
-    /* width: 100%; */
     width: 274px;
     height: 268px;
     border-radius: 14px;
@@ -85,4 +84,15 @@ export const Button = styled.button`
   :hover {
     background-color: #0b44cd;
   }
+`;
+
+export const More = styled.a`
+  margin-top: 100px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: underline;
+  color: #3470ff;
+  cursor: pointer;
 `;

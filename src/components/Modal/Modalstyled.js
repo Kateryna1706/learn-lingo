@@ -127,8 +127,10 @@ export const Text = styled.span`
   color: #3470ff;
 `;
 
-export const Button = styled.button`
-  display: block;
+export const Button = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 168px;
   height: 44px;
   margin-top: 24px;
@@ -137,6 +139,7 @@ export const Button = styled.button`
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
+  text-decoration: none;
   color: #fff;
 
   background-color: #3470ff;

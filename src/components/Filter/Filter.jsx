@@ -17,6 +17,7 @@ import { ReactComponent as ArrowDown } from '../Icons/arrow-down.svg';
 import { ReactComponent as ArrowUp } from '../Icons/arrow-up.svg';
 import { useState } from 'react';
 import { selectFilter } from 'redux/cars/carsSelectors';
+import { getFilteredCars } from 'redux/cars/carsOperations';
 
 const brandList = [
   'Buick',
@@ -54,7 +55,7 @@ const getPriceList = () => {
 
 const priceList = getPriceList();
 
-export const Filter = () => {
+export const Filter = ({ page }) => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
   const [visibleBrand, setVisibleBrand] = useState(false);
@@ -66,22 +67,22 @@ export const Filter = () => {
     filter.filterPrice ? filter.filterPrice : 'To $'
   );
 
-  const handleFilterChangeBrand = event => {
+  const handleChangeBrand = event => {
     const value = event.target.innerHTML;
     console.log(value);
-    dispatch(changeFilter({ key: 'filterBrand', value }));
     setBrand(value);
   };
 
-  const handleFilterChangePrice = event => {
+  const handleChangePrice = event => {
     const value = event.target.innerHTML;
     console.log(value);
-    dispatch(changeFilter({ key: 'filterPrice', value }));
     setPrice(value);
   };
 
-  const handleFilterChange = event => {
-    console.log(event.target);
+  const handleFilterChange = () => {
+    dispatch(getFilteredCars({ page, make: brand }));
+    dispatch(changeFilter({ key: 'filterPrice', value: price }));
+    dispatch(changeFilter({ key: 'filterBrand', value: brand }));
   };
 
   const handleClickDownBrand = () => {
@@ -109,7 +110,7 @@ export const Filter = () => {
             type="text"
             name="filter"
             value={brand}
-            onChange={handleFilterChangeBrand}
+            onChange={handleChangeBrand}
           />
         </Label>
         {visibleBrand ? (
@@ -120,7 +121,7 @@ export const Filter = () => {
         {visibleBrand && (
           <Dropdown className="brand">
             {brandList.map((item, index) => (
-              <DropdownItem key={index} onClick={handleFilterChangeBrand}>
+              <DropdownItem key={index} onClick={handleChangeBrand}>
                 {item}
               </DropdownItem>
             ))}
@@ -134,7 +135,7 @@ export const Filter = () => {
             type="text"
             name="filter"
             value={price}
-            onChange={handleFilterChangePrice}
+            onChange={handleChangePrice}
           />
         </Label>
         {visiblePrice ? (
@@ -145,7 +146,7 @@ export const Filter = () => {
         {visiblePrice && (
           <Dropdown className="price">
             {priceList.map((item, index) => (
-              <DropdownItem key={index} onClick={handleFilterChangePrice}>
+              <DropdownItem key={index} onClick={handleChangePrice}>
                 {item}
               </DropdownItem>
             ))}
@@ -169,7 +170,7 @@ export const Filter = () => {
           />
         </СarMileage>
       </Label>
-      <ButtonSearch>Search</ButtonSearch>
+      <ButtonSearch onClick={handleFilterChange}>Search</ButtonSearch>
     </Container>
   );
 };

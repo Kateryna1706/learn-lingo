@@ -12,8 +12,7 @@ export const selectVisibleCars = createSelector(
   [selectCars, selectFilter],
   (cars, filter) => {
     return cars.filter(
-      ({ make, rentalPrice }) =>
-        make.toLowerCase().includes(filter.filterBrand.toLowerCase()) &&
+      ({ rentalPrice }) =>
         Number(rentalPrice.slice(1)) <= Number(filter.filterPrice)
     );
   }
