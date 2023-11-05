@@ -5,11 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars, getFilteredCars } from 'redux/cars/carsOperations';
 import { Container } from './Pages.styled';
 import { Modal } from 'components/Modal/Modal';
-import { selectCars, selectFilter } from 'redux/cars/carsSelectors';
+import {
+  selectCars,
+  selectFilter,
+  selectVisibleCars,
+} from 'redux/cars/carsSelectors';
 
 export default function Cars() {
   const cars = useSelector(selectCars);
   const filter = useSelector(selectFilter);
+  const filteredCars = useSelector(selectVisibleCars);
+  const visibleCars = Number(filter.filterPrice) > 0 ? filteredCars : cars;
   const dispatch = useDispatch();
 
   const [page, setPage] = useState(1);
@@ -22,7 +28,6 @@ export default function Cars() {
 
   const handleClickCar = id => {
     const index = cars.findIndex(item => item.id === id);
-    console.log(cars[index]);
     setModal({
       isOpen: true,
       visibleData: cars[index],
@@ -58,6 +63,7 @@ export default function Cars() {
             handleClickCar={handleClickCar}
             showMore={showMore}
             loadMore={loadMore}
+            visibleCars={visibleCars}
           />
         </>
       )}

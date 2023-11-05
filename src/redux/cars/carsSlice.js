@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { addCar, deleteCar, fetchCars, getFilteredCars } from './carsOperations';
+import {
+  addCar,
+  deleteCar,
+  fetchCars,
+  getFilteredCars,
+  updateCar,
+} from './carsOperations';
 
 const carsInitialState = {
   items: [],
@@ -68,6 +74,21 @@ const carsSlice = createSlice({
         state.items.splice(index, 1);
       })
       .addCase(deleteCar.rejected, (state, action) => {
+        handleRejected(state, action);
+      })
+      .addCase(updateCar.pending, state => {
+        handlePending(state);
+      })
+      .addCase(updateCar.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+
+        const index = state.items.findIndex(
+          car => car.id === action.payload.id
+        );
+        state.items[index] = action.payload;
+      })
+      .addCase(updateCar.rejected, (state, action) => {
         handleRejected(state, action);
       });
   },

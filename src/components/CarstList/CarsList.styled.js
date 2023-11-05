@@ -35,6 +35,17 @@ export const ListItem = styled.li`
   }
 `;
 
+export const Position = styled.div`
+  position: relative;
+
+  & > .heart {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    cursor: pointer;
+  }
+`;
+
 export const ContainerMakeAndPrice = styled.div`
   display: flex;
   justify-content: space-between;

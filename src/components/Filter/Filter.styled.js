@@ -48,12 +48,6 @@ export const Label = styled.label`
     font-weight: 500;
     color: #121417;
     background-color: #f7f7fb;
-    /* &::placeholder {
-      font-size: 18px;
-      line-height: 20px;
-      font-weight: 500;
-      color: #121417;
-    } */
   }
 `;
 
@@ -73,6 +67,7 @@ export const DropdownBrand = styled.div`
   position: absolute;
   top: 104%;
   display: flex;
+  z-index: 200;
   flex-direction: column;
   gap: 8px;
   max-height: 272px;
@@ -100,6 +95,7 @@ export const Price = styled.input`
 export const Dropdown = styled.div`
   position: absolute;
   top: 104%;
+  z-index: 200;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -109,16 +105,6 @@ export const Dropdown = styled.div`
   box-sizing: border-box;
   overflow-y: scroll;
   background-color: #fff;
-
-  /* & >.brand {
-    max-height: 272px;
-    width: 224px;
-  }
-
-  & >.price {
-    max-height: 188px;
-    width: 125px;
-  } */
 `;
 
 export const DropdownItem = styled.div`

@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import {
   Button,
   ContainerDescription,
@@ -6,32 +5,59 @@ import {
   List,
   ListItem,
   More,
+  Position,
 } from './CarsList.styled';
-import {
-  selectCars,
-  selectFilter,
-  selectVisibleCars,
-} from 'redux/cars/carsSelectors';
+import { ReactComponent as Heart } from '../Icons/heart.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCars, selectFavorites } from 'redux/cars/carsSelectors';
+import { addFavorites, deleteFavorites } from 'redux/cars/favoritesSlice';
 
-// const photoTrial =
-//   'C:UsersKaterina ZykovaDesktopGitHubcar-rental-appsrcimgimage 1 (1).png';
-
-export const CarsList = ({ handleClickCar, showMore, loadMore }) => {
-  // const dispatch = useDispatch();
-  const filter = useSelector(selectFilter);
-
+export const CarsList = ({
+  handleClickCar,
+  showMore,
+  loadMore,
+  visibleCars,
+}) => {
+  const dispatch = useDispatch();
+  const favoritesCars = useSelector(selectFavorites);
   const cars = useSelector(selectCars);
-  const filteredCars = useSelector(selectVisibleCars);
-  const visibleCars =
-    filter.filterPrice.length !== 0 ? filteredCars : cars;
-  console.log(visibleCars);
-  console.log(filter.filterPrice);
+
+  const handleClickHeart = carId => {
+    const isFavorite = favoritesCars.some(item => item.id === carId);
+    const index = cars.findIndex(item => item.id === carId);
+
+    if (isFavorite) {
+      dispatch(deleteFavorites(carId));
+    }
+    if (!isFavorite) {
+      const newItem = cars[index];
+      dispatch(addFavorites(newItem));
+    }
+  };
+
   return (
     <>
       <List>
         {visibleCars.map(car => (
           <ListItem key={car.id}>
-            <img src={car.img} alt="" width="274"></img>
+            <Position>
+              <Heart
+                className="heart"
+                stroke={
+                  favoritesCars.some(item => item.id === car.id)
+                    ? '#3470ff'
+                    : '#FFFFFF'
+                }
+                fill={
+                  favoritesCars.some(item => item.id === car.id)
+                    ? '#3470ff'
+                    : 'transparent'
+                }
+                onClick={() => handleClickHeart(car.id)}
+              />
+              <img src={car.img} alt="" width="274"></img>
+            </Position>
+
             <ContainerMakeAndPrice>
               <p>{`${car.make}, ${car.year}`}</p>
               <p>{car.rentalPrice}</p>
@@ -51,7 +77,9 @@ export const CarsList = ({ handleClickCar, showMore, loadMore }) => {
           </ListItem>
         ))}
       </List>
-      {loadMore && <More onClick={() => showMore()}>Load more</More>}
+      {loadMore && visibleCars.length !== 0 && visibleCars.length > 12 && (
+        <More onClick={() => showMore()}>Load more</More>
+      )}
     </>
   );
 };

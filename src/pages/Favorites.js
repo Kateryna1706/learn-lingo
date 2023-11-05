@@ -1,29 +1,55 @@
-import { Filter } from 'components/Filter/Filter';
 import { CarsList } from 'components/CarstList/CarsList';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCars } from 'redux/cars/carsOperations';
-import { selectCars } from 'redux/cars/carsSelectors';
-
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Container } from './Pages.styled';
+import { Modal } from 'components/Modal/Modal';
+import { selectCars, selectFavorites } from 'redux/cars/carsSelectors';
 
 export default function Favorites() {
   const cars = useSelector(selectCars);
+  const [page, setPage] = useState(1);
+  const [modal, setModal] = useState({ isOpen: false, visibleData: null });
+  const [loadMore, setLoadMore] = useState(false);
+  const favoritesCars = useSelector(selectFavorites);
 
-  const dispatch = useDispatch();
+  const showMore = () => {
+    setPage(prevState => prevState + 1);
+  };
+
+  const handleClickCar = id => {
+    const index = cars.findIndex(item => item.id === id);
+    setModal({
+      isOpen: true,
+      visibleData: cars[index],
+    });
+  };
+
+  const closeModal = () => {
+    setModal({
+      isOpen: false,
+      visibleData: null,
+    });
+  };
 
   useEffect(() => {
-    dispatch(fetchCars());
-  }, [dispatch]);
+    setLoadMore(page < Math.ceil(41 / 12));
+  }, [page]);
 
   return (
     <Container>
-      <h1>Favorites</h1>
+      {modal.isOpen && <Modal car={modal.visibleData} onClick={closeModal} />}
+      <h1>
+        {favoritesCars.length === 0 ? 'No cars in favorites' : 'Favorites'}
+      </h1>
 
-      {cars.length !== 0 && (
+      {favoritesCars.length !== 0 && (
         <>
-          <Filter />
-          <CarsList />
+          <CarsList
+            handleClickCar={handleClickCar}
+            showMore={showMore}
+            loadMore={loadMore}
+            visibleCars={favoritesCars}
+          />
         </>
       )}
     </Container>

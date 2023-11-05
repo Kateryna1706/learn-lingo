@@ -69,13 +69,11 @@ export const Filter = ({ page }) => {
 
   const handleChangeBrand = event => {
     const value = event.target.innerHTML;
-    console.log(value);
     setBrand(value);
   };
 
   const handleChangePrice = event => {
     const value = event.target.innerHTML;
-    console.log(value);
     setPrice(value);
   };
 
