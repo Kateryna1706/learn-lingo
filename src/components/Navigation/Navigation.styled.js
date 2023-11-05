@@ -13,6 +13,10 @@ export const NavigationContainer = styled.nav`
   a {
     text-decoration: none;
     color: #fff;
+
+    &.active {
+      color: orange;
+    }
   }
 `;
 

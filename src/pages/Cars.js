@@ -11,7 +11,7 @@ import {
   selectVisibleCars,
 } from 'redux/cars/carsSelectors';
 
-export default function Cars() {
+const Cars = () => {
   const cars = useSelector(selectCars);
   const filter = useSelector(selectFilter);
   const filteredCars = useSelector(selectVisibleCars);
@@ -54,7 +54,6 @@ export default function Cars() {
   return (
     <Container>
       {modal.isOpen && <Modal car={modal.visibleData} onClick={closeModal} />}
-      <h1>Cars</h1>
 
       {cars.length !== 0 && (
         <>
@@ -69,4 +68,6 @@ export default function Cars() {
       )}
     </Container>
   );
-}
+};
+
+export default Cars;

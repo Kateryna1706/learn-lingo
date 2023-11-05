@@ -106,4 +106,8 @@ export const More = styled.a`
   text-decoration: underline;
   color: #3470ff;
   cursor: pointer;
+
+  :hover {
+    color: #0b44cd;
+  }
 `;

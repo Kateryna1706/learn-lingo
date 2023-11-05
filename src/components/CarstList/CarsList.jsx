@@ -77,7 +77,7 @@ export const CarsList = ({
           </ListItem>
         ))}
       </List>
-      {loadMore && visibleCars.length !== 0 && visibleCars.length > 12 && (
+      {loadMore && visibleCars.length === 12 && (
         <More onClick={() => showMore()}>Load more</More>
       )}
     </>

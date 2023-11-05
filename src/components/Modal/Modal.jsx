@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-// import PropTypes from 'prop-types';
 import {
   Overlay,
   ModalWrap,
@@ -91,11 +90,3 @@ export const Modal = ({ car, onClick }) => {
     </Overlay>
   );
 };
-
-// Modal.propTypes = {
-//   largeImage: PropTypes.shape({
-//     id: PropTypes.number.isRequired,
-//     image: PropTypes.string.isRequired,
-//   }).isRequired,
-//   onClick: PropTypes.func.isRequired,
-// };

@@ -5,7 +5,7 @@ import { Container } from './Pages.styled';
 import { Modal } from 'components/Modal/Modal';
 import { selectCars, selectFavorites } from 'redux/cars/carsSelectors';
 
-export default function Favorites() {
+const Favorites = () => {
   const cars = useSelector(selectCars);
   const [page, setPage] = useState(1);
   const [modal, setModal] = useState({ isOpen: false, visibleData: null });
@@ -54,4 +54,6 @@ export default function Favorites() {
       )}
     </Container>
   );
-}
+};
+
+export default Favorites;

@@ -29,36 +29,5 @@ export const getFilteredCars = createAsyncThunk(
   }
 );
 
-export const addCar = createAsyncThunk('cars/addCar', async (car, thunkAPI) => {
-  try {
-    const response = await axios.post('/adverts', car);
 
-    return response.data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
 
-export const deleteCar = createAsyncThunk(
-  'cars/deleteCar',
-  async (carId, thunkAPI) => {
-    try {
-      const response = await axios.delete(`/adverts/${carId}`);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const updateCar = createAsyncThunk(
-  'cars/updateCar',
-  async (data, thunkAPI) => {
-    try {
-      const response = await axios.put(`/adverts/${data.carId}`, data.update);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);

@@ -103,7 +103,6 @@ export const Conditions = styled.div`
 export const ListConditions = styled.div`
   display: flex;
   justify-content: start;
-  /* flex-direction: row-reverse; */
   flex-wrap: wrap-reverse;
   gap: 8px;
   width: 100%;

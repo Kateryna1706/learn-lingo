@@ -1,12 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import {
-  addCar,
-  deleteCar,
-  fetchCars,
-  getFilteredCars,
-  updateCar,
-} from './carsOperations';
+import { fetchCars, getFilteredCars } from './carsOperations';
 
 const carsInitialState = {
   items: [],
@@ -49,46 +43,6 @@ const carsSlice = createSlice({
         state.items = action.payload;
       })
       .addCase(getFilteredCars.rejected, (state, action) => {
-        handleRejected(state, action);
-      })
-      .addCase(addCar.pending, (state, action) => {
-        handlePending(state);
-      })
-      .addCase(addCar.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.items.push(action.payload);
-      })
-      .addCase(addCar.rejected, (state, action) => {
-        handleRejected(state, action);
-      })
-      .addCase(deleteCar.pending, (state, action) => {
-        handlePending(state);
-      })
-      .addCase(deleteCar.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.items.findIndex(
-          car => car.id === action.payload.id
-        );
-        state.items.splice(index, 1);
-      })
-      .addCase(deleteCar.rejected, (state, action) => {
-        handleRejected(state, action);
-      })
-      .addCase(updateCar.pending, state => {
-        handlePending(state);
-      })
-      .addCase(updateCar.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-
-        const index = state.items.findIndex(
-          car => car.id === action.payload.id
-        );
-        state.items[index] = action.payload;
-      })
-      .addCase(updateCar.rejected, (state, action) => {
         handleRejected(state, action);
       });
   },
