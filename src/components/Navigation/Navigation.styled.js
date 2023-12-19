@@ -20,8 +20,22 @@ export const NavigationContainer = styled.nav`
   }
 `;
 
+export const Logo = styled.div`
+  display: flex;
+  gap: 28px;
+`;
+
 export const NavigationDiv = styled.div`
   display: flex;
   flex-direction: row;
   gap: 15px;
 `;
+
+export const Authorization = styled.div`
+  display: flex;
+  gap: 16px;
+`;
+
+export const Button = styled.button`
+
+`
