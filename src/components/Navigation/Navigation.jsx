@@ -49,12 +49,12 @@ export const Navigation = ({ isModalOpen, openModal, closeModal }) => {
         </Authorization>
       )}
       {isModalOpen && childrenModal === 'login' && (
-        <Modal>
+        <Modal closeModal={closeModal}>
           <LoginForm />
         </Modal>
       )}
       {isModalOpen && childrenModal === 'registration' && (
-        <Modal>
+        <Modal closeModal={closeModal}>
           <RegistrationForm />
         </Modal>
       )}

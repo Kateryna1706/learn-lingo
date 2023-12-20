@@ -27,4 +27,11 @@ export const CrossClose = styled(Close)`
   position: absolute;
   top: 20px;
   right: 20px;
+  stroke: #121417;
+
+  cursor: pointer;
+
+  &:hover {
+    stroke: #f4c550;
+  }
 `;

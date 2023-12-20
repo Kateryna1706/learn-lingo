@@ -8,7 +8,15 @@ import {
   Text,
 } from './Form.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
+import { useState } from 'react';
 import * as Yup from 'yup';
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  updateProfile,
+} from 'firebase/auth';
+import { auth } from '../../firebase-config';
+import { Notify } from 'notiflix';
 
 const initialValues = {
   name: '',
@@ -29,11 +37,32 @@ const SignupSchema = Yup.object().shape({
 });
 
 const RegistrationForm = () => {
-  
+  const [visiblePassword, setVisiblePassword] = useState(false);
+
   const handleSubmit = (values, actions) => {
     const { name, email, password } = values;
 
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        Notify.success('Registration completed successfully');
+      })
+      .catch(error => {
+        Notify.failure(error.code);
+      });
+
+    onAuthStateChanged(auth, user => {
+      if (user) {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        });
+      }
+    });
+
     actions.resetForm();
+  };
+
+  const handleClick = () => {
+    setVisiblePassword(prevState => !prevState);
   };
 
   return (
@@ -58,8 +87,12 @@ const RegistrationForm = () => {
             <ErrorMessage name="email" component="div" />
           </Label>
           <Label>
-            <Icon />
-            <Field type="password" placeholder="Password" name="password" />
+            <Icon onClick={handleClick} />
+            <Field
+              type={visiblePassword ? 'text' : 'password'}
+              placeholder="Password"
+              name="password"
+            />
             <ErrorMessage name="password" component="div" />
           </Label>
           <Button type="submit">Sign Up</Button>

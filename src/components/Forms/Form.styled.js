@@ -61,6 +61,10 @@ export const Label = styled.label`
 
       color: #121417;
     }
+
+    &:focus {
+      outline-color: #f4c550;
+    }
   }
 `;
 
@@ -68,6 +72,14 @@ export const Icon = styled(EyeOf)`
   position: absolute;
   top: 17px;
   right: 17px;
+
+  cursor: pointer;
+
+  stroke: #121417;
+
+  &:hover {
+    stroke: #f4c550;
+  }
 `;
 
 export const Button = styled.button`
@@ -79,5 +91,12 @@ export const Button = styled.button`
   font-weight: 700;
   line-height: 28px;
 
-  background-color: #f4c550;
+  background-color: #ffdc86;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #f4c550;
+  }
 `;

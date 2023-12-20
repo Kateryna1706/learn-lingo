@@ -8,7 +8,11 @@ import {
   Text,
 } from './Form.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
+import { useState } from 'react';
 import * as Yup from 'yup';
+import { auth } from '../../firebase-config';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Notify } from 'notiflix';
 
 const initialValues = {
   email: '',
@@ -24,10 +28,25 @@ const SignupSchema = Yup.object().shape({
 });
 
 const LoginForm = () => {
+  const [visiblePassword, setVisiblePassword] = useState(false);
+
   const handleSubmit = (values, actions) => {
     const { email, password } = values;
 
+    signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch(error => {
+        Notify.failure(`${error.code} - ${error.message}`);
+      });
+
     actions.resetForm();
+  };
+
+  const handleClick = () => {
+    setVisiblePassword(prevState => !prevState);
   };
   return (
     <FormContainer>
@@ -47,8 +66,12 @@ const LoginForm = () => {
             <ErrorMessage name="email" component="div" />
           </Label>
           <Label>
-            <Icon />
-            <Field type="password" placeholder="Password" name="password" />
+            <Icon onClick={handleClick} />
+            <Field
+              type={visiblePassword ? 'text' : 'password'}
+              placeholder="Password"
+              name="password"
+            />
             <ErrorMessage name="password" component="div" />
           </Label>
           <Button type="submit">Log In</Button>
