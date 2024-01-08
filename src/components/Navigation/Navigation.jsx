@@ -3,14 +3,18 @@ import { NavLink } from 'react-router-dom';
 import {
   Authorization,
   Button,
+  LoginContainer,
   Logo,
+  LogoText,
   NavigationContainer,
-  NavigationDiv,
+  NavigationNav,
 } from './Navigation.styled';
 import { useState } from 'react';
 import RegistrationForm from 'components/Forms/RegistrationForm';
 import Modal from 'components/Modal/Modal';
 import LoginForm from 'components/Forms/LoginForm';
+import LogoImg from '../../images/ukraine.jpg';
+import { ReactComponent as Login } from '../Icons/log-in-01.svg';
 
 export const Navigation = ({ isModalOpen, openModal, closeModal }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,21 +33,24 @@ export const Navigation = ({ isModalOpen, openModal, closeModal }) => {
   return (
     <NavigationContainer>
       <Logo>
-        <img href="" alt="Logo"></img>
-        <NavLink to="/">LearnLingo</NavLink>
+        <img src={`${LogoImg}`} alt="Logo" width={28} height={28}></img>
+        <LogoText>LearnLingo</LogoText>
       </Logo>
-      <NavigationDiv>
+      <NavigationNav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/catalog">Teachers</NavLink>
         {isLoggedIn && <NavLink to="/favorites">Favorites</NavLink>}
-      </NavigationDiv>
+      </NavigationNav>
 
       {isLoggedIn ? (
         <Button type="button">Log out</Button>
       ) : (
         <Authorization>
-          <Button onClick={() => handleClick('login')}>Log in</Button>
-          <Button onClick={() => handleClick('registration')}>
+          <LoginContainer onClick={() => handleClick('login')}>
+            <Login />
+            <Button type="button">Log in</Button>
+          </LoginContainer>
+          <Button type="button" className="registration" onClick={() => handleClick('registration')}>
             Registration
           </Button>
         </Authorization>

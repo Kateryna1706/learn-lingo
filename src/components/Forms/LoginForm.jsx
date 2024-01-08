@@ -6,6 +6,7 @@ import {
   Icon,
   Label,
   Text,
+  Wrapper,
 } from './Form.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import { useState } from 'react';
@@ -61,19 +62,21 @@ const LoginForm = () => {
         onSubmit={handleSubmit}
       >
         <FormWrapper>
-          <Label>
-            <Field type="email" placeholder="Email" name="email" />
-            <ErrorMessage name="email" component="div" />
-          </Label>
-          <Label>
-            <Icon onClick={handleClick} />
-            <Field
-              type={visiblePassword ? 'text' : 'password'}
-              placeholder="Password"
-              name="password"
-            />
-            <ErrorMessage name="password" component="div" />
-          </Label>
+          <Wrapper>
+            <Label>
+              <Field type="email" placeholder="Email" name="email" />
+              <ErrorMessage name="email" component="div" />
+            </Label>
+            <Label>
+              <Icon onClick={handleClick} />
+              <Field
+                type={visiblePassword ? 'text' : 'password'}
+                placeholder="Password"
+                name="password"
+              />
+              <ErrorMessage name="password" component="div" />
+            </Label>
+          </Wrapper>
           <Button type="submit">Log In</Button>
         </FormWrapper>
       </Formik>

@@ -75,16 +75,7 @@ export const App = () => {
               />
             }
           />
-          <Route
-            path="*"
-            element={
-              <HomePage
-                isModalOpen={isModalOpen}
-                openModal={openModal}
-                closeModal={closeModal}
-              />
-            }
-          />
+          <Route path="*" element={<HomePage />} />
         </Routes>
       </Suspense>
     </Container>
