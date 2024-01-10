@@ -239,4 +239,6 @@ export const ButtonMore = styled.button`
   color: #121417;
 
   background-color: #f4c550;
+
+  cursor: pointer;
 `;
