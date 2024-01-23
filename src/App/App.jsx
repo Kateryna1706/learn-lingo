@@ -45,7 +45,6 @@ export const App = () => {
   useEffect(() => {
     onAuthStateChanged(auth, user => {
       if (user) {
-        console.log(user);
         const newUser = {
           name: user.displayName,
           email: user.email,
@@ -61,8 +60,6 @@ export const App = () => {
       }
     });
   }, []);
-
-  console.log(currentUser);
 
   return (
     <Auth.Provider value={{ currentUser, isLoggedIn }}>

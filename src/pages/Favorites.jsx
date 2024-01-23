@@ -19,7 +19,6 @@ const Favorites = ({ changeFilter }) => {
 
     onValue(dbRef, snapshot => {
       const list = snapshot.val().filter(item => item.isFavorite);
-      console.log('Favorites:', list);
       setTeachersList(list);
     });
   };

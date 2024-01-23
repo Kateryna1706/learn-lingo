@@ -91,8 +91,6 @@ const Filter = ({ changeFilter, updateList }) => {
     []
   );
 
-  console.log(filter);
-
   return (
     <ContainerFilter>
       <Label>

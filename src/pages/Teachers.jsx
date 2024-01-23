@@ -78,8 +78,6 @@ const Teachers = ({ changeFilter }) => {
     });
   }, [limit, page]);
 
-  console.log(page);
-  console.log(limit);
 
   return (
     <Container>
