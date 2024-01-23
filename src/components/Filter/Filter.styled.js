@@ -3,6 +3,11 @@ import styled from '@emotion/styled';
 export const ContainerFilter = styled.div`
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 export const Label = styled.label`
@@ -87,5 +92,25 @@ export const DropdownItem = styled.li`
 
   &:hover {
     color: #f4c550;
+  }
+`;
+
+export const ButtonReset = styled.button`
+  display: flex;
+  align-self: end;
+  padding: 14px 50px;
+  border: none;
+  border-radius: 12px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  background-color: #ffdc86;
+
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: #f4c550;
   }
 `;

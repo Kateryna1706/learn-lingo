@@ -9,15 +9,20 @@ import {
   NavigationContainer,
   NavigationNav,
 } from './Navigation.styled';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import RegistrationForm from 'components/Forms/RegistrationForm';
 import Modal from 'components/Modal/Modal';
 import LoginForm from 'components/Forms/LoginForm';
 import LogoImg from '../../images/ukraine.jpg';
 import { ReactComponent as Login } from '../Icons/log-in-01.svg';
+import { Auth } from 'context';
 
-export const Navigation = ({ isModalOpen, openModal, closeModal }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+import { signOut } from 'firebase/auth';
+import { auth } from 'firebase-config';
+
+export const Navigation = ({ isModalOpen, openModal, closeModal, logOut }) => {
+  const authContex = useContext(Auth);
+  const isLoggedIn = authContex.isLoggedIn;
   const [childrenModal, setChildrenModal] = useState('');
 
   const handleClick = form => {
@@ -28,6 +33,16 @@ export const Navigation = ({ isModalOpen, openModal, closeModal }) => {
     } else {
       setChildrenModal('registration');
     }
+  };
+
+  const handleClickLogOut = () => {
+    signOut(auth)
+      .then(() => {
+        logOut();
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   return (
@@ -43,26 +58,32 @@ export const Navigation = ({ isModalOpen, openModal, closeModal }) => {
       </NavigationNav>
 
       {isLoggedIn ? (
-        <Button type="button">Log out</Button>
+        <Button type="button" className="auth" onClick={handleClickLogOut}>
+          Log out
+        </Button>
       ) : (
         <Authorization>
           <LoginContainer onClick={() => handleClick('login')}>
             <Login />
             <Button type="button">Log in</Button>
           </LoginContainer>
-          <Button type="button" className="registration" onClick={() => handleClick('registration')}>
+          <Button
+            type="button"
+            className="auth"
+            onClick={() => handleClick('registration')}
+          >
             Registration
           </Button>
         </Authorization>
       )}
       {isModalOpen && childrenModal === 'login' && (
         <Modal closeModal={closeModal}>
-          <LoginForm />
+          <LoginForm closeModal={closeModal} />
         </Modal>
       )}
       {isModalOpen && childrenModal === 'registration' && (
         <Modal closeModal={closeModal}>
-          <RegistrationForm />
+          <RegistrationForm closeModal={closeModal} />
         </Modal>
       )}
     </NavigationContainer>

@@ -39,7 +39,7 @@ const SignupSchema = Yup.object().shape({
   reason: Yup.string().required('Required'),
 });
 
-const BookForm = ({ data }) => {
+const BookForm = ({ data, closeModal }) => {
   const { teacher, teacherAvatar } = data;
   const [lessonReservation, setLessonReservation] = useState([]);
 
@@ -58,6 +58,7 @@ const BookForm = ({ data }) => {
     Notify.success(`You have booked a lesson with a teacher ${teacher}`);
 
     actions.resetForm();
+    closeModal();
   };
   return (
     <FormContainer>

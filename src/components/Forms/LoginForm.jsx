@@ -28,22 +28,22 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const LoginForm = () => {
+const LoginForm = ({ closeModal }) => {
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const handleSubmit = (values, actions) => {
     const { email, password } = values;
 
     signInWithEmailAndPassword(auth, email, password)
-      .then(userCredential => {
-        const user = userCredential.user;
-        console.log(user);
+      .then(() => {
+        Notify.success('You have successfully logged in');
       })
       .catch(error => {
         Notify.failure(`${error.code} - ${error.message}`);
       });
 
     actions.resetForm();
+    closeModal();
   };
 
   const handleClick = () => {

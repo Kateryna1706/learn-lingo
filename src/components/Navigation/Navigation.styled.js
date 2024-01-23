@@ -4,7 +4,14 @@ export const NavigationContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 128px;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  box-sizing: border-box;
+
+  max-width: 1440px;
+  width: 100%;
+  padding: 20px 8.88%;
 
   background-color: #ffffff;
 
@@ -38,12 +45,21 @@ export const LogoText = styled.span`
   letter-spacing: -0.02em;
 
   color: #121417;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const NavigationNav = styled.nav`
   display: flex;
   flex-direction: row;
   gap: 28px;
+  gap: 28px;
+
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
 `;
 
 export const Authorization = styled.div`
@@ -85,7 +101,7 @@ export const Button = styled.button`
 
   cursor: pointer;
 
-  &.registration {
+  &.auth {
     padding: 14px 39px;
     border-radius: 12px;
 

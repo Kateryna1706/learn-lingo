@@ -37,7 +37,7 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ closeModal }) => {
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const handleSubmit = (values, actions) => {
@@ -60,6 +60,7 @@ const RegistrationForm = () => {
     });
 
     actions.resetForm();
+    closeModal();
   };
 
   const handleClick = () => {

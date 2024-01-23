@@ -15,13 +15,23 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
+  position: relative;
   display: flex;
   justify-content: center;
-  gap: 48px;
-  padding: 24px;
+
+  gap: 4.05%;
+
+  width: 100%;
+  max-width: 1184px;
+  padding: 2.02%;
   border-radius: 24px;
 
   background-color: #ffffff;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const AvatarWrapper = styled.div`
@@ -34,20 +44,29 @@ export const AvatarWrapper = styled.div`
   border-radius: 50%;
 
   img {
-    width: 96px;
-    height: 96px;
     border-radius: 50%;
   }
 `;
 
 export const Wrapper = styled.div`
-  width: 968px;
+  width: 81.75%;
 `;
 
 export const HeaderCard = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
+
+  .heart {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.span`
@@ -70,12 +89,20 @@ export const Title = styled.span`
 
 export const ListHeader = styled.ul`
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  flex-wrap: wrap;
+
+  max-width: 697px;
 
   margin: 0;
   padding: 0;
+  margin-right: 8.98%;
   list-style: none;
+
+  @media (max-width: 768px) {
+    margin: 0;
+  }
 `;
 
 export const Item = styled.li`
@@ -188,10 +215,12 @@ export const ReviewerAvatar = styled.div`
 
 export const LevelsList = styled.ul`
   display: flex;
-  list-style: none;
+  flex-wrap: wrap;
   gap: 8px;
   padding: 0;
   margin-bottom: 32px;
+
+  list-style: none;
 `;
 
 export const Level = styled.button`
@@ -206,7 +235,7 @@ export const Level = styled.button`
 `;
 
 export const ButtonBook = styled.button`
-  padding: 16px 48px;
+  padding: 16px 4.95%;
   border: none;
   border-radius: 12px;
 
@@ -222,6 +251,11 @@ export const ButtonBook = styled.button`
   &:hover,
   &:focus {
     background-color: #f4c550;
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 `;
 

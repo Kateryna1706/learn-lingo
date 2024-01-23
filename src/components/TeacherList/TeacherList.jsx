@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   AvatarWrapper,
   ButtonBook,
@@ -20,27 +20,26 @@ import {
   Title,
   Wrapper,
 } from './TeacherList.styled';
-import { ref, onValue, query, orderByKey, endBefore } from 'firebase/database';
-import { database } from '../../firebase-config';
+
 import { ReactComponent as Book } from '../Icons/book-open-01.svg';
 import { ReactComponent as Star } from '../Icons/star.svg';
 import { ReactComponent as Heart } from '../Icons/heart.svg';
 import Modal from 'components/Modal/Modal';
 import BookForm from 'components/Forms/BookForm';
+import { onValue, ref, update } from 'firebase/database';
+import { database } from '../../firebase-config';
+import { Auth, FilterContex } from 'context';
+import { Notify } from 'notiflix';
 
-const TeacherList = () => {
+const TeacherList = ({ loadMore, showMore, teachersList }) => {
+  const authContex = useContext(Auth);
+  const isLoggedIn = authContex.isLoggedIn;
+
+  const filter = useContext(FilterContex);
   const [teacherCardActive, setTeacherCardActive] = useState('');
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [dataModal, setDataModal] = useState({});
-  const [teachersList, setTeachersList] = useState([]);
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(4);
-  const [loadMore, setLoadMore] = useState(false);
-
-  const showMore = () => {
-    setPage(prevState => prevState + 1);
-    setLimit(prevState => prevState + 4);
-  };
 
   const handleClick = teacher => {
     setTeacherCardActive(teacher);
@@ -56,28 +55,38 @@ const TeacherList = () => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    const dbRef = ref(database, 'teachers');
+  const handleClickHeart = id => {
+    if (!isLoggedIn) {
+      Notify.failure(
+        'This functionality is available only to authorized users'
+      );
+      return;
+    }
 
-    const queryRef = query(
-      dbRef,
-      orderByKey(`id`),
+    const refDB = ref(database, 'teachers/' + id);
 
-      endBefore(`${limit}`)
+    const refValue = ref(database, 'teachers/' + id + '/isFavorite');
+    onValue(
+      refValue,
+      snapshot => {
+        const data = snapshot.val();
+        console.log(data);
+        const updates = {
+          isFavorite: !data,
+        };
+        update(refDB, updates);
+      },
+      {
+        onlyOnce: true,
+      }
     );
-
-    onValue(queryRef, snapshot => {
-      console.log(snapshot.val());
-      setTeachersList(snapshot.val());
-      setLoadMore(page < Math.ceil(30 / 4));
-    });
-  }, [limit, page]);
+  };
 
   return (
     <>
       <List>
         {teachersList.map(teacher => (
-          <ListItem key={`${teacher.name} ${teacher.surname}`}>
+          <ListItem key={teacher.id}>
             <AvatarWrapper>
               <img
                 src={teacher.avatar_url}
@@ -104,7 +113,14 @@ const TeacherList = () => {
                     <span className="price">{teacher.price_per_hour}$</span>
                   </Item>
                 </ListHeader>
-                <Heart />
+                <Heart
+                  onClick={() => {
+                    handleClickHeart(teacher.id);
+                  }}
+                  className="heart"
+                  stroke={teacher.isFavorite ? '#f4c550' : '#121417'}
+                  fill={teacher.isFavorite ? '#f4c550' : 'transparent'}
+                />
               </HeaderCard>
               <NameTeacher>{`${teacher.name} ${teacher.surname}`}</NameTeacher>
               <ItemDescription>
@@ -181,14 +197,16 @@ const TeacherList = () => {
               )}
               {isModalOpen && (
                 <Modal closeModal={closeModal}>
-                  <BookForm data={dataModal} />
+                  <BookForm data={dataModal} closeModal={closeModal} />
                 </Modal>
               )}
             </Wrapper>
           </ListItem>
         ))}
       </List>
-      {loadMore && <ButtonMore onClick={showMore}>Load more</ButtonMore>}
+      {loadMore && teachersList.length !== 0 && !filter && (
+        <ButtonMore onClick={showMore}>Load more</ButtonMore>
+      )}
     </>
   );
 };

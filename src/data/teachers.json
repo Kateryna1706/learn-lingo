@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "name": "John",
     "surname": "Doe",
     "languages": ["English", "Spanish"],
@@ -33,10 +33,12 @@
       "Teaches only adult learners (18 years and above).",
       "Flexible scheduling options available."
     ],
-    "experience": "John has been teaching languages for 7 years and has extensive experience in helping students improve their language skills. He has successfully taught numerous students from different backgrounds and proficiency levels."
+    "experience": "John has been teaching languages for 7 years and has extensive experience in helping students improve their language skills. He has successfully taught numerous students from different backgrounds and proficiency levels.",
+    "isFavorite": false
   },
+
   {
-    "id": 2,
+    "id": 1,
     "name": "Jane",
     "surname": "Smith",
     "languages": ["French", "German"],
@@ -67,10 +69,11 @@
       "Welcomes both adult learners and teenagers (13 years and above).",
       "Provides personalized study plans."
     ],
-    "experience": "Jane is an experienced and dedicated language teacher specializing in German and French. She holds a Bachelor's degree in German Studies and a Master's degree in French Literature. Her passion for languages and teaching has driven her to become a highly proficient and knowledgeable instructor. With over 10 years of teaching experience, Jane has helped numerous students of various backgrounds and proficiency levels achieve their language learning goals. She is skilled at adapting her teaching methods to suit the needs and learning styles of her students, ensuring that they feel supported and motivated throughout their language journey."
+    "experience": "Jane is an experienced and dedicated language teacher specializing in German and French. She holds a Bachelor's degree in German Studies and a Master's degree in French Literature. Her passion for languages and teaching has driven her to become a highly proficient and knowledgeable instructor. With over 10 years of teaching experience, Jane has helped numerous students of various backgrounds and proficiency levels achieve their language learning goals. She is skilled at adapting her teaching methods to suit the needs and learning styles of her students, ensuring that they feel supported and motivated throughout their language journey.",
+    "isFavorite": false
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "David",
     "surname": "Johnson",
     "languages": ["Mandarin Chinese"],
@@ -96,10 +99,11 @@
       "Teaches all age groups, including children, teenagers, and adults.",
       "Offers group lessons at discounted rates."
     ],
-    "experience": "David has been teaching Mandarin Chinese for 4 years. He has a passion for language teaching and is dedicated to helping his students succeed. With a solid understanding of the language and culture, David ensures that his lessons are both informative and enjoyable."
+    "experience": "David has been teaching Mandarin Chinese for 4 years. He has a passion for language teaching and is dedicated to helping his students succeed. With a solid understanding of the language and culture, David ensures that his lessons are both informative and enjoyable.",
+    "isFavorite": false
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "Sarah",
     "surname": "Johnson",
     "languages": ["English"],
@@ -125,10 +129,11 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Sarah has been teaching English for 6 years. She has worked with students from diverse backgrounds and understands the challenges they face while learning a new language. Her teaching approach emphasizes practical communication skills and ensures a supportive and engaging learning environment."
+    "experience": "Sarah has been teaching English for 6 years. She has worked with students from diverse backgrounds and understands the challenges they face while learning a new language. Her teaching approach emphasizes practical communication skills and ensures a supportive and engaging learning environment.",
+    "isFavorite": false
   },
   {
-    "id": 5,
+    "id": 4,
     "name": "Michael",
     "surname": "Brown",
     "languages": ["Spanish"],
@@ -159,10 +164,11 @@
       "Teaches adults, teenagers, and children (10 years and above).",
       "Customized study materials provided."
     ],
-    "experience": "Michael has been teaching Spanish for 5 years. He has a deep understanding of the language and culture, which he incorporates into his lessons. Michael's teaching style is interactive and dynamic, fostering an enjoyable learning experience while helping students achieve their language goals."
+    "experience": "Michael has been teaching Spanish for 5 years. He has a deep understanding of the language and culture, which he incorporates into his lessons. Michael's teaching style is interactive and dynamic, fostering an enjoyable learning experience while helping students achieve their language goals.",
+    "isFavorite": false
   },
   {
-    "id": 6,
+    "id": 5,
     "name": "Emma",
     "surname": "Wilson",
     "languages": ["French", "Italian"],
@@ -188,10 +194,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson packages available."
     ],
-    "experience": "Emma has been teaching French and Italian for 8 years. She has a strong background in language education and a passion for helping students succeed. Emma's teaching approach is student-centered, incorporating interactive activities and authentic materials to create a dynamic and immersive learning environment."
+    "experience": "Emma has been teaching French and Italian for 8 years. She has a strong background in language education and a passion for helping students succeed. Emma's teaching approach is student-centered, incorporating interactive activities and authentic materials to create a dynamic and immersive learning environment.",
+    "isFavorite": false
   },
   {
-    "id": 7,
+    "id": 6,
     "name": "Alexander",
     "surname": "Lee",
     "languages": ["English", "Korean"],
@@ -217,10 +224,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Alexander has been teaching English and Korean for 5 years. He has a strong background in language education and has successfully helped numerous students improve their language proficiency. Alexander's teaching style is student-centered, and he creates a supportive and engaging learning environment to maximize his students' language learning potential."
+    "experience": "Alexander has been teaching English and Korean for 5 years. He has a strong background in language education and has successfully helped numerous students improve their language proficiency. Alexander's teaching style is student-centered, and he creates a supportive and engaging learning environment to maximize his students' language learning potential.",
+    "isFavorite": false
   },
   {
-    "id": 8,
+    "id": 7,
     "name": "Sophia",
     "surname": "Garcia",
     "languages": ["Spanish", "French"],
@@ -251,10 +259,11 @@
       "Teaches adults, teenagers, and children (10 years and above).",
       "Customized study materials provided."
     ],
-    "experience": "Sophia has been teaching Spanish and French for 7 years. She has extensive experience in language instruction and is dedicated to helping her students achieve their language goals. Sophia's lessons are designed to be interactive and enjoyable, fostering a love for languages while developing strong language skills."
+    "experience": "Sophia has been teaching Spanish and French for 7 years. She has extensive experience in language instruction and is dedicated to helping her students achieve their language goals. Sophia's lessons are designed to be interactive and enjoyable, fostering a love for languages while developing strong language skills.",
+    "isFavorite": false
   },
   {
-    "id": 9,
+    "id": 8,
     "name": "Max",
     "surname": "Andersen",
     "languages": ["German"],
@@ -280,10 +289,11 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Max has been teaching German for 6 years and has a deep understanding of the language. He has helped numerous students gain proficiency in German through his structured and comprehensive lessons. Max's teaching approach is tailored to each student's needs, ensuring a personalized and effective learning experience."
+    "experience": "Max has been teaching German for 6 years and has a deep understanding of the language. He has helped numerous students gain proficiency in German through his structured and comprehensive lessons. Max's teaching approach is tailored to each student's needs, ensuring a personalized and effective learning experience.",
+    "isFavorite": false
   },
   {
-    "id": 10,
+    "id": 9,
     "name": "Isabella",
     "surname": "Lopez",
     "languages": ["English", "Spanish"],
@@ -309,10 +319,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson packages available."
     ],
-    "experience": "Isabella has been teaching English and Spanish for 5 years. She has a passion for language teaching and strives to create a supportive and interactive learning environment for her students. Isabella's lessons are tailored to each student's needs, helping them develop their language skills and gain confidence in their language abilities."
+    "experience": "Isabella has been teaching English and Spanish for 5 years. She has a passion for language teaching and strives to create a supportive and interactive learning environment for her students. Isabella's lessons are tailored to each student's needs, helping them develop their language skills and gain confidence in their language abilities.",
+    "isFavorite": false
   },
   {
-    "id": 11,
+    "id": 10,
     "name": "Daniel",
     "surname": "Martinez",
     "languages": ["French"],
@@ -343,10 +354,11 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Daniel has been teaching French for 7 years and has extensive experience in language instruction. He is dedicated to helping his students develop their language skills in an engaging and effective manner. Daniel's lessons incorporate a variety of activities and materials to provide a comprehensive learning experience."
+    "experience": "Daniel has been teaching French for 7 years and has extensive experience in language instruction. He is dedicated to helping his students develop their language skills in an engaging and effective manner. Daniel's lessons incorporate a variety of activities and materials to provide a comprehensive learning experience.",
+    "isFavorite": false
   },
   {
-    "id": 12,
+    "id": 11,
     "name": "Olivia",
     "surname": "Taylor",
     "languages": ["Italian"],
@@ -372,11 +384,12 @@
       "Teaches adults and teenagers (16 years and above).",
       "Customized study materials provided."
     ],
-    "experience": "Olivia has been teaching Italian for 6 years and has a passion for sharing the Italian language and culture with her students. She creates engaging and interactive lessons that foster language proficiency and cultural understanding. Olivia's teaching approach is student-centered and aims to inspire a love for the Italian language and its rich cultural heritage."
+    "experience": "Olivia has been teaching Italian for 6 years and has a passion for sharing the Italian language and culture with her students. She creates engaging and interactive lessons that foster language proficiency and cultural understanding. Olivia's teaching approach is student-centered and aims to inspire a love for the Italian language and its rich cultural heritage.",
+    "isFavorite": false
   },
 
   {
-    "id": 13,
+    "id": 12,
     "name": "Ethan",
     "surname": "Gonzalez",
     "languages": ["English", "Spanish"],
@@ -407,10 +420,11 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Ethan has been teaching English and Spanish for 6 years. He has a wealth of experience in language instruction and is skilled at adapting his teaching methods to meet the unique needs of each student. Ethan's lessons are dynamic and interactive, incorporating a variety of engaging activities to ensure effective language learning."
+    "experience": "Ethan has been teaching English and Spanish for 6 years. He has a wealth of experience in language instruction and is skilled at adapting his teaching methods to meet the unique needs of each student. Ethan's lessons are dynamic and interactive, incorporating a variety of engaging activities to ensure effective language learning.",
+    "isFavorite": false
   },
   {
-    "id": 14,
+    "id": 13,
     "name": "Emily",
     "surname": "Clark",
     "languages": ["French", "German"],
@@ -436,10 +450,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson packages available."
     ],
-    "experience": "Emily has been teaching French and German for 7 years. She has a deep understanding of the languages and cultures and uses her expertise to create engaging and informative lessons. Emily's teaching approach is student-centered, fostering a supportive and interactive learning environment to help her students achieve their language goals."
+    "experience": "Emily has been teaching French and German for 7 years. She has a deep understanding of the languages and cultures and uses her expertise to create engaging and informative lessons. Emily's teaching approach is student-centered, fostering a supportive and interactive learning environment to help her students achieve their language goals.",
+    "isFavorite": false
   },
   {
-    "id": 15,
+    "id": 14,
     "name": "Jacob",
     "surname": "Wang",
     "languages": ["Mandarin Chinese"],
@@ -470,11 +485,12 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Jacob has been teaching Mandarin Chinese for 8 years. He has extensive experience in language instruction and a deep knowledge of Mandarin and Chinese culture. Jacob's lessons are carefully structured to ensure systematic learning and provide a solid foundation in Mandarin language skills. He creates a supportive and engaging learning environment where students can develop their language proficiency with confidence."
+    "experience": "Jacob has been teaching Mandarin Chinese for 8 years. He has extensive experience in language instruction and a deep knowledge of Mandarin and Chinese culture. Jacob's lessons are carefully structured to ensure systematic learning and provide a solid foundation in Mandarin language skills. He creates a supportive and engaging learning environment where students can develop their language proficiency with confidence.",
+    "isFavorite": false
   },
 
   {
-    "id": 16,
+    "id": 15,
     "name": "Ava",
     "surname": "Cooper",
     "languages": ["English"],
@@ -505,10 +521,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Ava has been teaching English for 6 years and has extensive experience in language instruction. She is dedicated to helping her students achieve their language goals through engaging and effective lessons. Ava's teaching approach emphasizes interactive activities, practical exercises, and personalized instruction to ensure optimal language learning outcomes."
+    "experience": "Ava has been teaching English for 6 years and has extensive experience in language instruction. She is dedicated to helping her students achieve their language goals through engaging and effective lessons. Ava's teaching approach emphasizes interactive activities, practical exercises, and personalized instruction to ensure optimal language learning outcomes.",
+    "isFavorite": false
   },
   {
-    "id": 17,
+    "id": 16,
     "name": "Benjamin",
     "surname": "Rivera",
     "languages": ["Spanish"],
@@ -534,10 +551,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson packages available."
     ],
-    "experience": "Benjamin has been teaching Spanish for 8 years and has a passion for sharing the Spanish language and culture with his students. He has extensive experience in language instruction and is skilled at creating engaging and personalized lessons. Benjamin's teaching style emphasizes practical application and cultural insights to ensure a well-rounded language learning experience."
+    "experience": "Benjamin has been teaching Spanish for 8 years and has a passion for sharing the Spanish language and culture with his students. He has extensive experience in language instruction and is skilled at creating engaging and personalized lessons. Benjamin's teaching style emphasizes practical application and cultural insights to ensure a well-rounded language learning experience.",
+    "isFavorite": false
   },
   {
-    "id": 18,
+    "id": 17,
     "name": "Chloe",
     "surname": "Nguyen",
     "languages": ["Vietnamese"],
@@ -563,11 +581,12 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Chloe has been teaching Vietnamese for 7 years and has a deep understanding of the language and culture. She is dedicated to helping her students develop their language skills through well-structured and informative lessons. Chloe's teaching approach emphasizes practical conversation practice and cultural insights to provide a comprehensive and engaging learning experience."
+    "experience": "Chloe has been teaching Vietnamese for 7 years and has a deep understanding of the language and culture. She is dedicated to helping her students develop their language skills through well-structured and informative lessons. Chloe's teaching approach emphasizes practical conversation practice and cultural insights to provide a comprehensive and engaging learning experience.",
+    "isFavorite": false
   },
 
   {
-    "id": 19,
+    "id": 18,
     "name": "Henry",
     "surname": "Lewis",
     "languages": ["English", "German"],
@@ -598,10 +617,11 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Henry has been teaching English and German for 9 years. He has extensive experience in language instruction and is skilled at creating engaging and effective lessons. Henry's teaching approach combines interactive activities, practical exercises, and personalized instruction to ensure optimal language learning outcomes. With his patient and supportive teaching style, Henry helps his students develop confidence and proficiency in English and German."
+    "experience": "Henry has been teaching English and German for 9 years. He has extensive experience in language instruction and is skilled at creating engaging and effective lessons. Henry's teaching approach combines interactive activities, practical exercises, and personalized instruction to ensure optimal language learning outcomes. With his patient and supportive teaching style, Henry helps his students develop confidence and proficiency in English and German.",
+    "isFavorite": false
   },
   {
-    "id": 20,
+    "id": 19,
     "name": "Emily",
     "surname": "Baker",
     "languages": ["French"],
@@ -627,10 +647,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson packages available."
     ],
-    "experience": "Emily has been teaching French for 7 years and has a passion for sharing the language and culture with her students. She has extensive experience in language instruction and is dedicated to creating well-structured and informative lessons. Emily's teaching style emphasizes practical conversation practice, cultural insights, and personalized instruction to help her students develop their French language skills with confidence."
+    "experience": "Emily has been teaching French for 7 years and has a passion for sharing the language and culture with her students. She has extensive experience in language instruction and is dedicated to creating well-structured and informative lessons. Emily's teaching style emphasizes practical conversation practice, cultural insights, and personalized instruction to help her students develop their French language skills with confidence.",
+    "isFavorite": false
   },
   {
-    "id": 21,
+    "id": 20,
     "name": "Isabella",
     "surname": "Chen",
     "languages": ["Mandarin Chinese"],
@@ -661,11 +682,12 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Isabella has been teaching Mandarin Chinese for 8 years and has a wealth of experience in language instruction. She is dedicated to helping her students develop a strong foundation in Mandarin language skills. Isabella's teaching approach emphasizes interactive and engaging lessons, combining practical exercises, cultural insights, and personalized instruction to ensure her students' success in learning Mandarin Chinese."
+    "experience": "Isabella has been teaching Mandarin Chinese for 8 years and has a wealth of experience in language instruction. She is dedicated to helping her students develop a strong foundation in Mandarin language skills. Isabella's teaching approach emphasizes interactive and engaging lessons, combining practical exercises, cultural insights, and personalized instruction to ensure her students' success in learning Mandarin Chinese.",
+    "isFavorite": false
   },
 
   {
-    "id": 22,
+    "id": 21,
     "name": "Oliver",
     "surname": "Wright",
     "languages": ["English", "Spanish"],
@@ -691,10 +713,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Oliver has been teaching English and Spanish for 5 years. He has a deep understanding of both languages and is skilled at delivering engaging and effective lessons to his students. Oliver's teaching approach emphasizes interactive activities and practical exercises to enhance language skills. With his patient and supportive teaching style, Oliver creates a positive learning environment that promotes rapid progress and confidence in English and Spanish."
+    "experience": "Oliver has been teaching English and Spanish for 5 years. He has a deep understanding of both languages and is skilled at delivering engaging and effective lessons to his students. Oliver's teaching approach emphasizes interactive activities and practical exercises to enhance language skills. With his patient and supportive teaching style, Oliver creates a positive learning environment that promotes rapid progress and confidence in English and Spanish.",
+    "isFavorite": false
   },
   {
-    "id": 23,
+    "id": 22,
     "name": "Sophia",
     "surname": "Turner",
     "languages": ["French"],
@@ -725,10 +748,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson packages available."
     ],
-    "experience": "Sophia has been teaching French for 6 years and is passionate about sharing the beauty of the language with her students. She has extensive experience in language instruction and is known for her well-structured and informative lessons. Sophia's teaching approach combines conversational practice, cultural insights, and personalized instruction to help her students develop their French language skills with confidence and fluency."
+    "experience": "Sophia has been teaching French for 6 years and is passionate about sharing the beauty of the language with her students. She has extensive experience in language instruction and is known for her well-structured and informative lessons. Sophia's teaching approach combines conversational practice, cultural insights, and personalized instruction to help her students develop their French language skills with confidence and fluency.",
+    "isFavorite": false
   },
   {
-    "id": 24,
+    "id": 23,
     "name": "Lucas",
     "surname": "Liu",
     "languages": ["Mandarin Chinese"],
@@ -754,11 +778,12 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Lucas has been teaching Mandarin Chinese for 7 years and has a wealth of experience in language instruction. He is dedicated to helping his students develop a solid foundation in Mandarin language skills. Lucas's teaching approach emphasizes engaging and effective lessons, combining interactive activities, practical exercises, and cultural insights to facilitate language learning. With his patient and supportive teaching style, Lucas creates a positive learning environment that fosters rapid progress and confidence in Mandarin Chinese."
+    "experience": "Lucas has been teaching Mandarin Chinese for 7 years and has a wealth of experience in language instruction. He is dedicated to helping his students develop a solid foundation in Mandarin language skills. Lucas's teaching approach emphasizes engaging and effective lessons, combining interactive activities, practical exercises, and cultural insights to facilitate language learning. With his patient and supportive teaching style, Lucas creates a positive learning environment that fosters rapid progress and confidence in Mandarin Chinese.",
+    "isFavorite": false
   },
 
   {
-    "id": 25,
+    "id": 24,
     "name": "Sophie",
     "surname": "Davis",
     "languages": ["English", "Spanish"],
@@ -789,10 +814,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Sophie has been teaching English and Spanish for 6 years. She has a strong command of both languages and is dedicated to helping her students achieve their language learning goals. Sophie's teaching approach emphasizes engaging and effective lessons that incorporate interactive activities and practical exercises. Her lessons are designed to build language skills, improve fluency, and enhance communication abilities. With her patient and supportive teaching style, Sophie creates a positive and productive learning environment for her students."
+    "experience": "Sophie has been teaching English and Spanish for 6 years. She has a strong command of both languages and is dedicated to helping her students achieve their language learning goals. Sophie's teaching approach emphasizes engaging and effective lessons that incorporate interactive activities and practical exercises. Her lessons are designed to build language skills, improve fluency, and enhance communication abilities. With her patient and supportive teaching style, Sophie creates a positive and productive learning environment for her students.",
+    "isFavorite": false
   },
   {
-    "id": 27,
+    "id": 25,
     "name": "Emma",
     "surname": "Bennett",
     "languages": ["French"],
@@ -818,10 +844,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson packages available."
     ],
-    "experience": "Emma has been teaching French for 5 years and has a passion for sharing the French language and culture with her students. She has extensive experience in language instruction and is known for her well-structured and informative lessons. Emma's teaching approach combines conversational practice, cultural insights, and personalized instruction to help her students develop their French language skills with confidence and fluency. With her patient and supportive teaching style, Emma creates a positive learning environment that fosters rapid progress and enjoyment in French language learning."
+    "experience": "Emma has been teaching French for 5 years and has a passion for sharing the French language and culture with her students. She has extensive experience in language instruction and is known for her well-structured and informative lessons. Emma's teaching approach combines conversational practice, cultural insights, and personalized instruction to help her students develop their French language skills with confidence and fluency. With her patient and supportive teaching style, Emma creates a positive learning environment that fosters rapid progress and enjoyment in French language learning.",
+    "isFavorite": false
   },
   {
-    "id": 28,
+    "id": 26,
     "name": "Daniel",
     "surname": "Li",
     "languages": ["Mandarin Chinese"],
@@ -847,10 +874,11 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "Daniel has been teaching Mandarin Chinese for 7 years and is dedicated to helping his students develop a solid foundation in the language. He has a deep understanding of Mandarin and is skilled at delivering engaging and effective lessons. Daniel's teaching approach emphasizes interactive activities and practical exercises to enhance language skills and fluency. With his patient and supportive teaching style, Daniel creates a positive learning environment that promotes rapid progress and confidence in Mandarin Chinese."
+    "experience": "Daniel has been teaching Mandarin Chinese for 7 years and is dedicated to helping his students develop a solid foundation in the language. He has a deep understanding of Mandarin and is skilled at delivering engaging and effective lessons. Daniel's teaching approach emphasizes interactive activities and practical exercises to enhance language skills and fluency. With his patient and supportive teaching style, Daniel creates a positive learning environment that promotes rapid progress and confidence in Mandarin Chinese.",
+    "isFavorite": false
   },
   {
-    "id": 29,
+    "id": 27,
     "name": "James",
     "surname": "Robinson",
     "languages": ["English", "Spanish"],
@@ -881,10 +909,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "James has been teaching English and Spanish for 5 years. He has a passion for language instruction and a strong command of both English and Spanish. James is known for his engaging and effective teaching style, creating lessons that are interactive and focused on practical application. His approach combines a variety of activities to build language skills and enhance communication abilities. With his patient and supportive teaching style, James fosters a positive learning environment that empowers students to achieve their language goals."
+    "experience": "James has been teaching English and Spanish for 5 years. He has a passion for language instruction and a strong command of both English and Spanish. James is known for his engaging and effective teaching style, creating lessons that are interactive and focused on practical application. His approach combines a variety of activities to build language skills and enhance communication abilities. With his patient and supportive teaching style, James fosters a positive learning environment that empowers students to achieve their language goals.",
+    "isFavorite": false
   },
   {
-    "id": 30,
+    "id": 28,
     "name": "Natalie",
     "surname": "Turner",
     "languages": ["French"],
@@ -910,10 +939,11 @@
       "Teaches adults and teenagers (16 years and above).",
       "Flexible lesson packages available."
     ],
-    "experience": "Natalie has been teaching French for 4 years and has extensive experience in language instruction. She is dedicated to helping students develop their French language skills through well-structured and informative lessons. Natalie's teaching approach emphasizes conversation practice and cultural insights to enhance language fluency and comprehension. She provides personalized instruction tailored to each student's needs and goals. With her patient and encouraging teaching style, Natalie creates a positive and engaging learning environment that supports rapid progress and enjoyment in French language learning."
+    "experience": "Natalie has been teaching French for 4 years and has extensive experience in language instruction. She is dedicated to helping students develop their French language skills through well-structured and informative lessons. Natalie's teaching approach emphasizes conversation practice and cultural insights to enhance language fluency and comprehension. She provides personalized instruction tailored to each student's needs and goals. With her patient and encouraging teaching style, Natalie creates a positive and engaging learning environment that supports rapid progress and enjoyment in French language learning.",
+    "isFavorite": false
   },
   {
-    "id": 31,
+    "id": 29,
     "name": "William",
     "surname": "Chen",
     "languages": ["Mandarin Chinese"],
@@ -939,6 +969,7 @@
       "Teaches adults and teenagers (15 years and above).",
       "Flexible lesson timings available."
     ],
-    "experience": "William has been teaching Mandarin Chinese for 6 years. He has extensive experience in language instruction and is dedicated to helping students develop a strong foundation in Mandarin. William's lessons are engaging and effective, combining interactive activities and effective teaching methods. His teaching approach focuses on building language skills, improving fluency, and enhancing comprehension. With his patient and supportive teaching style, William creates a positive learning environment that fosters rapid progress and confidence in Mandarin Chinese."
+    "experience": "William has been teaching Mandarin Chinese for 6 years. He has extensive experience in language instruction and is dedicated to helping students develop a strong foundation in Mandarin. William's lessons are engaging and effective, combining interactive activities and effective teaching methods. His teaching approach focuses on building language skills, improving fluency, and enhancing comprehension. With his patient and supportive teaching style, William creates a positive learning environment that fosters rapid progress and confidence in Mandarin Chinese.",
+    "isFavorite": false
   }
 ]

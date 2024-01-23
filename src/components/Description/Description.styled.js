@@ -6,14 +6,34 @@ export const ContainerSection = styled.div`
   gap: 24px;
 
   color: #121417;
+
+  img {
+    width: 39.44%;
+  }
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap-reverse;
+
+    img {
+      width: 100%;
+      min-width: 320px;
+    }
+  }
 `;
 
 export const ContainerDescription = styled.div`
-  max-width: 720px;
-  padding: 98px 64px;
+  width: 50%;
+  padding: 98px 4.4%;
   border-radius: 30px;
 
   background-color: #f8f8f8;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    min-width: 320px;
+
+    padding: 68px 4.4%;
+  }
 `;
 
 export const FirstParagraph = styled.p`
@@ -23,6 +43,10 @@ export const FirstParagraph = styled.p`
   font-weight: 500;
   line-height: 56px;
   letter-spacing: -0.02em;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
 `;
 
 export const WordWrapper = styled.span`
@@ -45,7 +69,7 @@ export const SecondParagraph = styled.p`
 `;
 
 export const Button = styled.button`
-  padding: 16px 88px;
+  padding: 16px 12.2%;
   border: none;
   border-radius: 12px;
 

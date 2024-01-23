@@ -6,6 +6,10 @@ export const ContainerPage = styled.section`
   justify-content: center;
   gap: 24px;
   align-self: center;
-  width: 1312px;
-  padding: 0 64px;
+
+  box-sizing: border-box;
+
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 4.4%;
 `;
