@@ -26,13 +26,14 @@ import { ReactComponent as Star } from '../Icons/star.svg';
 import { ReactComponent as Heart } from '../Icons/heart.svg';
 import Modal from 'components/Modal/Modal';
 import BookForm from 'components/Forms/BookForm';
-import { onValue, ref, update } from 'firebase/database';
+import { push, ref } from 'firebase/database';
 import { database } from '../../firebase-config';
 import { Auth, FilterContex } from 'context';
 import { Notify } from 'notiflix';
 
 const TeacherList = ({ loadMore, showMore, teachersList }) => {
   const authContex = useContext(Auth);
+  const user = authContex.currentUser.email;
   const isLoggedIn = authContex.isLoggedIn;
 
   const filter = useContext(FilterContex);
@@ -63,22 +64,9 @@ const TeacherList = ({ loadMore, showMore, teachersList }) => {
       return;
     }
 
-    const refDB = ref(database, 'teachers/' + id);
+    const refValue = ref(database, `teachers/${id}/owner`);
 
-    const refValue = ref(database, 'teachers/' + id + '/isFavorite');
-    onValue(
-      refValue,
-      snapshot => {
-        const data = snapshot.val();
-        const updates = {
-          isFavorite: !data,
-        };
-        update(refDB, updates);
-      },
-      {
-        onlyOnce: true,
-      }
-    );
+    push(refValue, user);
   };
 
   return (
@@ -108,8 +96,10 @@ const TeacherList = ({ loadMore, showMore, teachersList }) => {
                     <span>Rating: {teacher.rating}</span>
                   </Item>
                   <Item>
-                    Price / 1 hour:
-                    <span className="price">{teacher.price_per_hour}$</span>
+                    Price / 1 hour:{' '}
+                    <span className="price">
+                      <pre> {teacher.price_per_hour}$</pre>
+                    </span>
                   </Item>
                 </ListHeader>
                 <Heart

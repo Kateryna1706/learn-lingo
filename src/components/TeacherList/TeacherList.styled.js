@@ -160,6 +160,10 @@ export const ButtonReadMore = styled.button`
   background-color: transparent;
 
   cursor: pointer;
+
+  &:hover {
+    color: #f4c550;
+  }
 `;
 
 export const Experience = styled.p`

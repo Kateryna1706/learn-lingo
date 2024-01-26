@@ -1,4 +1,4 @@
-import { FilterContex } from 'context';
+import { Auth, FilterContex } from 'context';
 import { Container, Wrapper } from './ListPage.styled';
 import Filter from 'components/Filter/Filter';
 import TeacherList from 'components/TeacherList/TeacherList';
@@ -7,7 +7,10 @@ import { onValue, ref } from 'firebase/database';
 import { useContext, useEffect, useState } from 'react';
 
 const Favorites = ({ changeFilter }) => {
+  const authContex = useContext(Auth);
+  const user = authContex.currentUser.email;
   const filter = useContext(FilterContex);
+
   const [teachersList, setTeachersList] = useState([]);
 
   const updateList = () => {
@@ -18,7 +21,7 @@ const Favorites = ({ changeFilter }) => {
     const dbRef = ref(database, 'teachers');
 
     onValue(dbRef, snapshot => {
-      const list = snapshot.val().filter(item => item.isFavorite);
+      const list = snapshot.val().filter(item => item['owner'].includes(user));
       setTeachersList(list);
     });
   };

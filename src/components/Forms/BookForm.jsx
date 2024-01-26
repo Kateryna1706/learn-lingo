@@ -1,3 +1,4 @@
+import { push, ref } from 'firebase/database';
 import {
   Button,
   Circle,
@@ -17,8 +18,8 @@ import {
 } from './Form.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import { Notify } from 'notiflix';
-import { useState } from 'react';
 import * as Yup from 'yup';
+import { database } from 'firebase-config';
 
 const initialValues = {
   fullName: '',
@@ -41,8 +42,6 @@ const SignupSchema = Yup.object().shape({
 
 const BookForm = ({ data, closeModal }) => {
   const { teacher, teacherAvatar } = data;
-  const [lessonReservation, setLessonReservation] = useState([]);
-  console.log(lessonReservation);
 
   const handleSubmit = (values, actions) => {
     const { fullName, email, phoneNumber, reason } = values;
@@ -55,12 +54,14 @@ const BookForm = ({ data, closeModal }) => {
       reason,
     };
 
-    setLessonReservation(prevState => [bookLesson, ...prevState]);
+    push(ref(database, 'reservations/'), bookLesson);
+
     Notify.success(`You have booked a lesson with a teacher ${teacher}`);
 
     actions.resetForm();
     closeModal();
   };
+
   return (
     <FormContainer>
       <Header>Book trial lesson</Header>

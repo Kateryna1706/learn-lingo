@@ -57,6 +57,10 @@ export const NavigationNav = styled.nav`
   gap: 28px;
   gap: 28px;
 
+  a:hover {
+    color: #f4c550;
+  }
+
   @media (max-width: 768px) {
     gap: 15px;
   }
@@ -101,11 +105,19 @@ export const Button = styled.button`
 
   cursor: pointer;
 
+  :hover {
+    color: #f4c550;
+  }
+
   &.auth {
     padding: 14px 39px;
     border-radius: 12px;
 
     color: #ffffff;
     background-color: #121417;
+
+    :hover {
+      background-color: #f4c550;
+    }
   }
 `;

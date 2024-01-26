@@ -24,11 +24,18 @@ const Filter = ({ changeFilter, updateList }) => {
   const [visibleLevels, setVisibleLevels] = useState(false);
   const [visiblePrices, setVisiblePrices] = useState(false);
 
+  const [filterLanguages, setFilterLanguages] = useState('');
+  const [filterLevels, setFilterLevels] = useState('');
+  const [filterPrice, setFilterPrice] = useState('');
+
   const pricesList = getFilterPrice(teachers);
   const languagesList = getLanguagesList(teachers);
   const levelsList = getlevelList(teachers);
 
   const handleClickReset = () => {
+    setFilterLanguages('');
+    setFilterLevels('');
+    setFilterPrice('');
     changeFilter(null);
     updateList();
   };
@@ -52,6 +59,8 @@ const Filter = ({ changeFilter, updateList }) => {
       value: event.target.innerHTML,
     };
 
+    setFilterLanguages(event.target.innerHTML);
+
     changeFilter(newFilter);
 
     setVisibleLanguages(false);
@@ -63,6 +72,7 @@ const Filter = ({ changeFilter, updateList }) => {
       filter: 'levels',
       value: event.target.innerHTML,
     };
+    setFilterLevels(event.target.innerHTML);
 
     changeFilter(newFilter);
 
@@ -75,6 +85,7 @@ const Filter = ({ changeFilter, updateList }) => {
       filter: 'price_per_hour',
       value: event.target.innerHTML,
     };
+    setFilterPrice(`${event.target.innerHTML} $`);
 
     changeFilter(newFilter);
 
@@ -95,7 +106,11 @@ const Filter = ({ changeFilter, updateList }) => {
     <ContainerFilter>
       <Label>
         <Text>Languages</Text>
-        <input type="text" placeholder="French" className="languages" />
+        <input
+          type="text"
+          placeholder={filterLanguages}
+          className="languages"
+        />
         {visibleLanguages ? (
           <ArrowUp onClick={handleClickDropdownLanguages} className="arrow" />
         ) : (
@@ -113,7 +128,7 @@ const Filter = ({ changeFilter, updateList }) => {
       </Label>
       <Label>
         <Text>Level of knowledge</Text>
-        <input type="text" placeholder="A1 Beginner" className="levels" />
+        <input type="text" placeholder={filterLevels} className="levels" />
         {visibleLevels ? (
           <ArrowUp onClick={handleClickDropdownLevels} className="arrow" />
         ) : (
@@ -131,7 +146,7 @@ const Filter = ({ changeFilter, updateList }) => {
       </Label>
       <Label>
         <Text>Price</Text>
-        <input type="text" placeholder="30 $" className="prices" />
+        <input type="text" placeholder={filterPrice} className="prices" />
         {visiblePrices ? (
           <ArrowUp onClick={handleClickDropdownPrices} className="arrow" />
         ) : (
