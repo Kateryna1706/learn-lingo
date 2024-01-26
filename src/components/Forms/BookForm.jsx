@@ -42,6 +42,7 @@ const SignupSchema = Yup.object().shape({
 const BookForm = ({ data, closeModal }) => {
   const { teacher, teacherAvatar } = data;
   const [lessonReservation, setLessonReservation] = useState([]);
+  console.log(lessonReservation);
 
   const handleSubmit = (values, actions) => {
     const { fullName, email, phoneNumber, reason } = values;
