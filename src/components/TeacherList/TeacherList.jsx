@@ -70,7 +70,6 @@ const TeacherList = ({ loadMore, showMore, teachersList }) => {
       refValue,
       snapshot => {
         const data = snapshot.val();
-        console.log(data);
         const updates = {
           isFavorite: !data,
         };
