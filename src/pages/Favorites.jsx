@@ -14,10 +14,6 @@ const Favorites = ({ changeFilter }) => {
   const [teachersList, setTeachersList] = useState([]);
 
   const updateList = () => {
-    fetchTeacherList();
-  };
-
-  const fetchTeacherList = () => {
     const dbRef = ref(database, 'teachers');
 
     onValue(dbRef, snapshot => {
@@ -43,8 +39,15 @@ const Favorites = ({ changeFilter }) => {
   }, [filter]);
 
   useEffect(() => {
-    fetchTeacherList();
-  }, []);
+    const dbRef = ref(database, 'teachers');
+
+    onValue(dbRef, snapshot => {
+      const list = snapshot
+        .val()
+        .filter(item => item.owner && item.owner.includes(user));
+      setTeachersList(list);
+    });
+  }, [user]);
 
   return (
     <Container>
