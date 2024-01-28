@@ -12,4 +12,8 @@ export const ContainerPage = styled.section`
   width: 100%;
   max-width: 1440px;
   padding: 0 4.4% 32px;
+
+  @media (max-width: 768px) {
+    gap: 14px;
+  }
 `;

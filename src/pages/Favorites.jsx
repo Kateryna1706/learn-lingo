@@ -21,7 +21,9 @@ const Favorites = ({ changeFilter }) => {
     const dbRef = ref(database, 'teachers');
 
     onValue(dbRef, snapshot => {
-      const list = snapshot.val().filter(item => item['owner'].includes(user));
+      const list = snapshot
+        .val()
+        .filter(item => item.owner && item.owner.includes(user));
       setTeachersList(list);
     });
   };

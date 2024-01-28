@@ -35,11 +35,13 @@ export const App = () => {
 
   const openModal = () => {
     setIsModalOpen(true);
+    document.body.classList.add('hidden');
   };
 
   const closeModal = event => {
     if (event?.target !== event?.currentTarget) return;
     setIsModalOpen(false);
+    document.body.classList.remove('hidden');
   };
 
   useEffect(() => {

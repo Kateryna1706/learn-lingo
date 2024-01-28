@@ -12,6 +12,7 @@ export const Backdrop = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 1200;
+  overflow: scroll;
 `;
 
 export const ModalWindow = styled.div`

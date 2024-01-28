@@ -13,6 +13,7 @@ export const ContainerSection = styled.div`
 
   @media (max-width: 768px) {
     flex-wrap: wrap-reverse;
+    gap: 14px;
 
     img {
       width: 100%;
@@ -32,7 +33,7 @@ export const ContainerDescription = styled.div`
     width: 100%;
     min-width: 320px;
 
-    padding: 68px 4.4%;
+    padding: 48px 4.4%;
   }
 `;
 
@@ -45,7 +46,9 @@ export const FirstParagraph = styled.p`
   letter-spacing: -0.02em;
 
   @media (max-width: 768px) {
-    font-size: 40px;
+    margin-bottom: 22px;
+
+    font-size: 35px;
   }
 `;
 
@@ -66,6 +69,10 @@ export const SecondParagraph = styled.p`
   font-weight: 400;
   line-height: 22px;
   letter-spacing: -0.02em;
+
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+  }
 `;
 
 export const Button = styled.button`

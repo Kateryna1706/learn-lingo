@@ -280,3 +280,8 @@ export const ButtonMore = styled.button`
 
   cursor: pointer;
 `;
+
+export const Stub = styled.p`
+  font-size: 50px;
+  text-align: center;
+`;
