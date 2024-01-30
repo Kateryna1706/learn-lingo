@@ -13,7 +13,7 @@ export const ContainerSection = styled.div`
 
   @media (max-width: 768px) {
     flex-wrap: wrap-reverse;
-    gap: 14px;
+    gap: 0;
 
     img {
       width: 100%;

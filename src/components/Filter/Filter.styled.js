@@ -34,7 +34,7 @@ export const Label = styled.label`
     }
 
     &:focus {
-      border: 2px solid #f4c550;
+      outline: 2px solid #f4c550;
     }
   }
 

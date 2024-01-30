@@ -21,7 +21,7 @@ export const Wrapper = styled.section`
   padding: 96px 8.88%;
 
   @media (max-width: 768px) {
-    padding-top: 26px;
-    padding-bottom: 26px;
+    gap: 10px;
+    padding: 10px;
   }
 `;

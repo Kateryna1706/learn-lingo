@@ -1,4 +1,30 @@
 import styled from '@emotion/styled';
+import { ReactComponent as Menu } from '../Icons/menu.svg';
+
+export const Container = styled.div`
+  display: flex;
+  align-self: stretch;
+  justify-content: center;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+
+    padding: 10px;
+  }
+`;
+
+export const NavigationMenu = styled(Menu)`
+  display: flex;
+  align-self: flex-end;
+
+  stroke: #262626;
+
+  cursor: pointer;
+
+  :hover {
+    stroke: #f4c550;
+  }
+`;
 
 export const NavigationContainer = styled.header`
   display: flex;
@@ -27,6 +53,36 @@ export const NavigationContainer = styled.header`
       color: #f4c550;
     }
   }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 50%;
+
+    z-index: 10;
+
+    width: 70%;
+    height: 100vh;
+    padding-bottom: 40px;
+    padding-top: 40px;
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      stroke: #262626;
+
+      cursor: pointer;
+
+      :hover {
+        stroke: #f4c550;
+      }
+    }
+  }
 `;
 
 export const Logo = styled.div`
@@ -35,6 +91,10 @@ export const Logo = styled.div`
 
   img {
     border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+    align-items: center;
   }
 `;
 
@@ -62,6 +122,7 @@ export const NavigationNav = styled.nav`
   }
 
   @media (max-width: 768px) {
+    flex-direction: column;
     gap: 15px;
   }
 `;
@@ -70,6 +131,12 @@ export const Authorization = styled.div`
   display: flex;
   gap: 16px;
   align-self: stretch;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
 `;
 
 export const LoginContainer = styled.div`

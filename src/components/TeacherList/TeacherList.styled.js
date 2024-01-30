@@ -12,6 +12,10 @@ export const List = styled.ul`
   list-style: none;
 
   background-color: transparent;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 export const ListItem = styled.li`
