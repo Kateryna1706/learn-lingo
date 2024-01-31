@@ -24,12 +24,19 @@ import { Auth } from 'context';
 import { signOut } from 'firebase/auth';
 import { auth } from 'firebase-config';
 
-export const Navigation = ({ isModalOpen, openModal, closeModal, logOut }) => {
+export const Navigation = ({ logOut }) => {
   const [width, setWidth] = useState(window.innerWidth);
   const authContex = useContext(Auth);
   const isLoggedIn = authContex.isLoggedIn;
   const [childrenModal, setChildrenModal] = useState('');
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const closeModal = event => {
+    if (event?.target !== event?.currentTarget) return;
+    setIsModalOpen(false);
+    document.body.classList.remove('hidden');
+  };
 
   const handleClickMenu = () => {
     setIsNavigationOpen(true);
@@ -39,22 +46,25 @@ export const Navigation = ({ isModalOpen, openModal, closeModal, logOut }) => {
     setIsNavigationOpen(false);
   };
 
-  const handleClick = form => {
-    openModal();
-    
+  const handleClick = event => {
+    setIsNavigationOpen(false);
 
-    if (form === 'login') {
-      setChildrenModal('login');
-    } else {
+    const value = event.target.innerHTML;
+
+    if (value === 'Registration') {
       setChildrenModal('registration');
+    } else {
+      setChildrenModal('login');
     }
 
-    setIsNavigationOpen(false);
+    setIsModalOpen(true);
+
+    document.body.classList.add('hidden');
   };
 
   const handleClickLogOut = () => {
     setIsNavigationOpen(false);
-    
+
     signOut(auth)
       .then(() => {
         logOut();
@@ -94,9 +104,20 @@ export const Navigation = ({ isModalOpen, openModal, closeModal, logOut }) => {
             </Logo>
           )}
           <NavigationNav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/catalog">Teachers</NavLink>
-            {isLoggedIn && <NavLink to="/favorites">Favorites</NavLink>}
+            <NavLink onClick={() => setIsNavigationOpen(false)} to="/">
+              Home
+            </NavLink>
+            <NavLink onClick={() => setIsNavigationOpen(false)} to="/catalog">
+              Teachers
+            </NavLink>
+            {isLoggedIn && (
+              <NavLink
+                onClick={() => setIsNavigationOpen(false)}
+                to="/favorites"
+              >
+                Favorites
+              </NavLink>
+            )}
           </NavigationNav>
 
           {isLoggedIn ? (
@@ -105,32 +126,28 @@ export const Navigation = ({ isModalOpen, openModal, closeModal, logOut }) => {
             </Button>
           ) : (
             <Authorization>
-              <LoginContainer onClick={() => handleClick('login')}>
+              <LoginContainer onClick={handleClick}>
                 <Login />
                 <Button type="button">Log in</Button>
               </LoginContainer>
-              <Button
-                type="button"
-                className="auth"
-                onClick={() => handleClick('registration')}
-              >
+              <Button type="button" className="auth" onClick={handleClick}>
                 Registration
               </Button>
             </Authorization>
           )}
-          {isModalOpen && childrenModal === 'login' && (
-            <Modal closeModal={closeModal}>
-              <LoginForm closeModal={closeModal} />
-            </Modal>
-          )}
-          {isModalOpen && childrenModal === 'registration' && (
-            <Modal closeModal={closeModal}>
-              <RegistrationForm closeModal={closeModal} />
-            </Modal>
-          )}
         </NavigationContainer>
       ) : (
         <NavigationMenu onClick={handleClickMenu} />
+      )}
+      {isModalOpen && childrenModal === 'login' && !isNavigationOpen && (
+        <Modal closeModal={closeModal}>
+          <LoginForm closeModal={closeModal} />
+        </Modal>
+      )}
+      {isModalOpen && childrenModal === 'registration' && !isNavigationOpen && (
+        <Modal closeModal={closeModal}>
+          <RegistrationForm closeModal={closeModal} />
+        </Modal>
       )}
     </Container>
   );

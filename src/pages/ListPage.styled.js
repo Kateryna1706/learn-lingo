@@ -22,6 +22,6 @@ export const Wrapper = styled.section`
 
   @media (max-width: 768px) {
     gap: 10px;
-    padding: 10px;
+    padding: 15px;
   }
 `;

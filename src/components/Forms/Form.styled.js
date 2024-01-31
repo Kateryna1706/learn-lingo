@@ -19,6 +19,11 @@ export const Header = styled.h1`
   letter-spacing: -0.02em;
 
   color: #121417;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
 `;
 
 export const Text = styled.p`
@@ -44,6 +49,12 @@ export const TeacherInfo = styled.div`
   gap: 14px;
   margin-top: 20px;
   margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
 `;
 
 export const TeacherName = styled.div`
@@ -88,6 +99,11 @@ export const Wrapper = styled.div`
   flex-direction: column;
   gap: 18px;
   margin: 40px 0;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+    margin: 20px 0;
+  }
 `;
 
 export const Label = styled.label`

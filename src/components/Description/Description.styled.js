@@ -26,6 +26,7 @@ export const ContainerDescription = styled.div`
   width: 50%;
   padding: 98px 4.4%;
   border-radius: 30px;
+  box-sizing: border-box;
 
   background-color: #f8f8f8;
 

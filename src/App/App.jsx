@@ -14,7 +14,6 @@ const FavoritesPage = lazy(() => import('pages/Favorites'));
 export const App = () => {
   const [filter, setFilter] = useState(null);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState({
     name: '',
     email: '',
@@ -31,17 +30,6 @@ export const App = () => {
 
   const changeFilter = newFilter => {
     setFilter(newFilter);
-  };
-
-  const openModal = () => {
-    setIsModalOpen(true);
-    document.body.classList.add('hidden');
-  };
-
-  const closeModal = event => {
-    if (event?.target !== event?.currentTarget) return;
-    setIsModalOpen(false);
-    document.body.classList.remove('hidden');
   };
 
   useEffect(() => {
@@ -67,12 +55,7 @@ export const App = () => {
     <Auth.Provider value={{ currentUser, isLoggedIn }}>
       <FilterContex.Provider value={filter}>
         <Container>
-          <Navigation
-            isModalOpen={isModalOpen}
-            openModal={openModal}
-            closeModal={closeModal}
-            logOut={logOut}
-          />
+          <Navigation logOut={logOut} />
 
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>

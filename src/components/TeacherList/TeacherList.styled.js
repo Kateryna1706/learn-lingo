@@ -27,14 +27,16 @@ export const ListItem = styled.li`
 
   width: 100%;
   max-width: 1184px;
-  padding: 2.02%;
+  padding: 24px 2.02%;
   border-radius: 24px;
+  box-sizing: border-box;
 
   background-color: #ffffff;
 
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    padding: 10px;
   }
 `;
 

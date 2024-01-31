@@ -22,6 +22,10 @@ export const ModalWindow = styled.div`
   border-radius: 30px;
   background-color: #ffffff;
   box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 44px 24px;
+  }
 `;
 
 export const CrossClose = styled(Close)`
