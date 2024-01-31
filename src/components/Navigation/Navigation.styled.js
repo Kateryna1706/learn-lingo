@@ -66,7 +66,7 @@ export const NavigationContainer = styled.header`
 
     width: 70%;
     height: 100vh;
-    padding-bottom: 40px;
+    padding-bottom: 50px;
     padding-top: 40px;
 
     .close {
